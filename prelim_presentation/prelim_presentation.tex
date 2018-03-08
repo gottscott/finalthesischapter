@@ -1,0 +1,194 @@
+\documentclass[aspectratio=169, 10pt]{beamer}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{Evaluating Urban Simulations with a High Resolution Sensor Network in Baltimore, Maryland.}
+\subtitle{}
+\date{Dec 2017}
+\author{Anna Scott, Hamada Badr, Darryn Waugh, Ben Zaitchik}
+\institute{annascott@jhu.edu }
+
+
+%%% commands to uncover 
+\newcommand*{\vcenteredhbox}[1]{#1}
+
+\begin{document}
+
+\maketitle
+
+
+
+\section{Introduction}
+
+\begin{frame}
+\frametitle{Literature Review: policy & reviews}
+\begin{itemize}
+\item UHI literature focuses on UHI attributing and understanding the causes \item UHI mitigation is less studied 
+\item Cities are interested in UHI measures
+\item Cties cite a lack of local data and knowledge as hindering their progress %\cite{hewitt2014cool}.
+\item Cities list mitigating the impacts of heatwaves a key motivator of urban heat mitigation policies %\citep{hewitt2014cool}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Based on this, I think these are important policy-relevant questions about the UHI:  
+\begin{enumerate}
+\item How does urban heat island intensity vary throughout the day? 
+\item How variable is urban temperature? 
+\item How does green infrastructure affect urban heat island intensity? 
+\item How does urban heat intensity vary during heatwaves? 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[label=intro]
+\frametitle{Literature Review: WRF}
+\centering
+%\includegraphics[width=.5\textwidth]{figures/reported_deaths_by_climate_hazard.png}
+Given that data is a limiting factor, models can be important. Looking at 50 most cited studies using  the WRF model \tiny{Chen, 2011}: 
+\begin{itemize}
+\item Urban simulations using conclude that WRF performs well for modelling the urban environment. 
+
+\item Mean RMSEs for 2-meter temperature are $0.6-4.0^\circ C$.
+ 
+\item Few studies evaluate WRF at the resolution at which it is run 
+
+\item Most common evaluation metrics are statistics for single points like RMSE, correlation, bias, hit rate, index of agreement, and coefficient of determination
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Literature Review: WRF}
+This literature doesn't evaluate WRF for: 
+\begin{itemize}
+\item geospatial variability
+\item ability to evaluate policy measures
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Proposed Paper Outline}
+
+Proposed paper outline: 
+1) Using UHI observations, quantify: 
+\begin{itemize}
+\item Diurnal variation of urban heat island intensity
+\item Spatial variability of urban temperature
+\item Relationship between green infrastructure and urban heat island intensity
+\item How urban heat intensity varies during heatwaves
+\end{itemize}
+2) Evaluate how well WRF reproduces these observed relationships 
+\end{frame}
+\section{Results}
+\subsection{Observations}
+\begin{frame}
+\frametitle{Diurnal variation of urban heat intensity}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spatial variability of urban temperature}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Green infrastructure and urban heat}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Heatwaves}
+
+\end{frame}
+
+\subsection{Numerical Model}
+\begin{frame}
+\frametitle{Diurnal variation of urban heat intensity}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spatial variability of urban temperature}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Green infrastructure and urban heat}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Heatwaves}
+
+\end{frame}
+
+\section{Conclusions} 
+
+\begin{frame}
+\frametitle{Conclusion}
+Observations from a low-cost sensor network and a 1km WRF run (UCM+ SSTs) show that : 
+\begin{itemize}
+\large{
+\item Urban-rural nighttime differences smaller during hotter periods
+\item Urban-rural nighttime differences smaller during moist weather types
+\item During moist weather types, increased surface energy flux in rural areas
+\item Dominant cause of changes in nighttime surface energy flux is net radiation 
+}
+\end{itemize}
+
+\textbf{Questions?} annascott@jhu.edu / @annaunderthesun
+
+\textsc{References}
+\small{
+\textbf{Scott, A.A.}, D.W. Waugh, and B. Zaitchik. Reduced Urband Heat Island Under Warmer Conditions, \textit{under review}, Environmental Research Letters, Oct 2017. 
+
+Scott, Anna A., Ben Zaitchik, Darryn W. Waugh, and Katie O’Meara. "Intraurban Temperature Variability in Baltimore." Journal of Applied Meteorology and Climatology 56, no. 1 (2017): 159-171.
+}
+\end{frame}
+%
+%
+%\begin{frame}[label=results]
+%\frametitle{Results: JJA}
+%\begin{figure}
+%\centering
+%\includegraphics[width=.8\textwidth]{../figures/JJAUHIBaltimin.png}
+%\caption{Daily $T_r$ versus $\Delta T$ for JJA 1975-2015.}
+%\end{figure}
+% $\Delta T$ decreases when $T_r$ rises in Baltimore by $m_{JJA} = -0.26 ^\circ/$C/$^\circ$C. 
+%%plot temperature vs. delta T for Baltimore 
+%%Linear slope (least squares) $m$ is calculated for 58 cities. 
+%\end{frame}
+%
+%\begin{frame}[label=30yrBalt]
+%\frametitle{Results: mean JJA trends}
+%\begin{figure}
+%\centering 
+%\includegraphics[width=\textwidth]{../figures/Baltimore.png}
+%\caption{Mean JJA temperature (left) versus mean JJA $\Delta T$ for Baltimore.}
+%\end{figure}
+%We compare trends using $m_{30yr} = \frac{\beta_{\Delta T}}{\beta _{T_r}} $. Here, a warming Baltimore is associated with decreasing $\Delta T$. 
+%
+%\end{frame} 
+ 
+
+
+
+%\begin{frame}[allowframebreaks]
+%\frametitle{Bibliography}
+
+%\alert{\footnotesize I am using the APA referencing/citation style in this presentation. \emph{You} should be using Harvard Cite-Them-Right style -- do not copy and paste from this list!}
+
+%\nocite{*}
+%\printbibliography[heading=none]
+
+%\end{frame}
+
+\end{document}
