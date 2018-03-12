@@ -54,7 +54,8 @@ Based on this, I think these are important policy-relevant questions about the U
 \frametitle{Literature Review: WRF}
 \centering
 %\includegraphics[width=.5\textwidth]{figures/reported_deaths_by_climate_hazard.png}
-Given that data is a limiting factor, models can be important. Looking at 50 most cited studies using  the WRF model \tiny{Chen, 2011}: 
+Given that data is a limiting factor, models can be important. Looking at 50 most cited studies using  the WRF model :
+%\tiny{Chen, 2011}: 
 \begin{itemize}
 \item Urban simulations using conclude that WRF performs well for modelling the urban environment. 
 
@@ -73,6 +74,7 @@ This literature doesn't evaluate WRF for:
 \begin{itemize}
 \item geospatial variability
 \item ability to evaluate policy measures
+\item UHI intensity over time
 \end{itemize}
 \end{frame}
 
@@ -80,6 +82,8 @@ This literature doesn't evaluate WRF for:
 \frametitle{Proposed Paper Outline}
 
 Proposed paper outline: 
+
+
 1) Using UHI observations, quantify: 
 \begin{itemize}
 \item Diurnal variation of urban heat island intensity
@@ -121,29 +125,84 @@ Proposed paper outline:
 
 \subsection{Numerical Model}
 
+%\begin{frame}
+%\frametitle{Model evaluations}
+%UCM 1km has largest UHI and only run with correct diurnal cycle. 
+%\begin{figure}
+%\includegraphics[width=.75\textwidth]{../figures/UHI_by_resolution_errorbars.png}
+%\end{figure}
+%\end{frame}
+
 \begin{frame}
 \frametitle{Model evaluations}
 UCM 1km has largest UHI and only run with correct diurnal cycle. 
+\begin{figure}
+\includegraphics[width=.65\textwidth]{../figures/UCM_TSK_6_selectedpts_timeseries.png}
+\end{figure}
 \end{frame}
 
+\begin{frame}
+\frametitle{Model evaluations}
+UCM 1km has largest UHI and only run with correct diurnal cycle. 
+\begin{figure}
+\includegraphics[width=.65\textwidth]{../figures/UCM+SST_T2_6_selectedpts_timeseries.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Model evaluations}
+\center
+\begin{tabular}{lrrr}
+\toprule
+{} &  all data &     6am data&   16pm data \\
+\midrule
+\bf rmse        &    \bf  0.82 & \bf 3.31 & \bf 3.65 \\
+correlation &      0.69 &  0.54 & 0.48 \\
+p-value     &      0.00 &  0.00 & 0.00 \\
+pbias       &      0.27 & -6.45 & 1.84 \\
+mioa        &      0.72 &  0.56 & 0.43 \\
+$r^2$   &      0.48 &  0.29 & 0.23 \\
+\bottomrule
+\end{tabular}
+
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Diurnal variation of urban heat intensity}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/diurnal_model.png}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Spatial variability of urban temperature}
-
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/spatialvariability_model.png}
+\end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{Green infrastructure and urban heat}
-
+\frametitle{Green infrastructure}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/landcover_boxplots.png}
+\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Heatwaves}
+\begin{figure}
+\includegraphics[width=.75\textwidth]{../figures/heat_model.png}
+\end{figure}
+\end{frame}
 
+
+\begin{frame}
+\frametitle{Heatwaves}
+\begin{figure}
+\includegraphics[width=.75\textwidth]{../figures/synoptic_6am.png}
+
+\includegraphics[width=.75\textwidth]{../figures/synoptic_16pm.png}
+\end{figure}
 \end{frame}
 
 \section{Conclusions} 
@@ -153,21 +212,23 @@ UCM 1km has largest UHI and only run with correct diurnal cycle.
 Observations from a low-cost sensor network and a 1km WRF run (UCM+ SSTs) show that : 
 \begin{itemize}
 \large{
-\item Urban-rural nighttime differences smaller during hotter periods
-\item Urban-rural nighttime differences smaller during moist weather types
-\item During moist weather types, increased surface energy flux in rural areas
-\item Dominant cause of changes in nighttime surface energy flux is net radiation 
+\item The "usual" statistics show that model agrees well with observations, though hourly agreement is poor for 6 and 16 o'clock
+\item Modelled UHI several degrees lower than observations
+\item Diurnal UHI pattern differs in timing \& intensity
+\item Modelled UHI less spatially variable than observations 
+\item Differences in landcover cause temperature variability in both model and observation
+\item Variability during heatwaves by landcover not captured by model
 }
 \end{itemize}
 
-\textbf{Questions?} annascott@jhu.edu / @annaunderthesun
+%\textbf{Questions?} annascott@jhu.edu / @annaunderthesun
 
-\textsc{References}
-\small{
-\textbf{Scott, A.A.}, D.W. Waugh, and B. Zaitchik. Reduced Urband Heat Island Under Warmer Conditions, \textit{under review}, Environmental Research Letters, Oct 2017. 
-
-Scott, Anna A., Ben Zaitchik, Darryn W. Waugh, and Katie O’Meara. "Intraurban Temperature Variability in Baltimore." Journal of Applied Meteorology and Climatology 56, no. 1 (2017): 159-171.
-}
+%\textsc{References}
+%\small{
+%\textbf{Scott, A.A.}, D.W. Waugh, and B. Zaitchik. Reduced Urband Heat Island Under Warmer Conditions, \textit{under review}, Environmental Research Letters, Oct 2017. 
+%
+%Scott, Anna A., Ben Zaitchik, Darryn W. Waugh, and Katie O’Meara. "Intraurban Temperature Variability in Baltimore." Journal of Applied Meteorology and Climatology 56, no. 1 (2017): 159-171.
+%}
 \end{frame}
 %
 %
