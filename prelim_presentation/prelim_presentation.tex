@@ -33,7 +33,8 @@
 \begin{frame}
 \frametitle{Literature Review: policy \& reviews}
 \begin{itemize}
-\item UHI literature focuses on UHI attributing and understanding the causes \item UHI mitigation is less studied 
+\item UHI literature focuses on UHI attributing and understanding the causes 
+\item UHI mitigation is less studied 
 \item Cities are interested in UHI measures
 \item Cties cite a lack of local data and knowledge as hindering their progress %\cite{hewitt2014cool}.
 \item Cities list mitigating the impacts of heatwaves a key motivator of urban heat mitigation policies %\citep{hewitt2014cool}
@@ -52,12 +53,12 @@ Based on this, I think these are important policy-relevant questions about the U
 
 \begin{frame}[label=intro]
 \frametitle{Literature Review: WRF}
-\centering
+%\centering
 %\includegraphics[width=.5\textwidth]{figures/reported_deaths_by_climate_hazard.png}
-Given that data is a limiting factor, models can be important. Looking at 50 most cited studies using  the WRF model :
+Given that data is a limiting factor, models can be important. Looking at 50 most cited studies using the WRF model :
 %\tiny{Chen, 2011}: 
 \begin{itemize}
-\item Urban simulations using conclude that WRF performs well for modelling the urban environment. 
+\item Urban simulations conclude that WRF performs well
 
 \item Mean RMSEs for 2-meter temperature are $0.6-4.0^\circ C$.
  
@@ -94,7 +95,18 @@ Proposed paper outline:
 2) Evaluate how well WRF reproduces these observed relationships 
 \end{frame}
 \section{Results}
+
 \subsection{Observations}
+\begin{frame}
+\frametitle{iButton Difference with station}
+
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/ibuttonbias.png}
+\end{figure}
+
+We subtract off this bias from all iButton observations. 
+\end{frame}
+
 \begin{frame}
 \frametitle{Diurnal variation of urban heat intensity}
 \begin{figure}
@@ -106,6 +118,13 @@ Proposed paper outline:
 \frametitle{Spatial variability of urban temperature}
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/spatialvariability.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Green infrastructure}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/landcover_boxplots.png}
 \end{figure}
 \end{frame}
 
@@ -184,7 +203,14 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{frame}
 \frametitle{Green infrastructure}
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/landcover_boxplots.png}
+\includegraphics[width=\textwidth]{../figures/landcover_boxplots_model.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Green infrastructure}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/landcover_model.png}
 \end{figure}
 \end{frame}
 
