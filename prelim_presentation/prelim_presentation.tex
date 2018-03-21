@@ -109,6 +109,7 @@ We subtract off this bias from all iButton observations.
 
 \begin{frame}
 \frametitle{Diurnal variation of urban heat intensity}
+UHI largest in morning, smallest at night. 
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/diurnal.png}
 \end{figure}
@@ -119,6 +120,11 @@ We subtract off this bias from all iButton observations.
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/spatialvariability.png}
 \end{figure}
+\begin{itemize}
+\item average temperature difference across sites is several degrees at most
+\item spatial variability lower at 6 am than at 4pm
+\item green spaces more variable than non-green spaces 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -126,6 +132,11 @@ We subtract off this bias from all iButton observations.
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover_boxplots.png}
 \end{figure}
+
+\begin{itemize}
+\item Variability in vegetation is an important factor in determining spatial variability of 2 meter temperature
+\item Observations in green sites are significantly cooler than impervious sites.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -133,6 +144,7 @@ We subtract off this bias from all iButton observations.
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover.png}
 \end{figure}
+Variability in NDVI is an important factor in determining spatial variability of 2 meter temperature
 \end{frame}
 
 \begin{frame}
@@ -140,6 +152,11 @@ We subtract off this bias from all iButton observations.
 \begin{figure}
 \includegraphics[width=.75\textwidth]{../figures/heat.png}
 \end{figure}
+\begin{itemize}
+\item 6am temp decreases with increasing rural heat in all sites
+\item 4pm temp increases with increasing rural heat in parks/forests
+\item 4pm temp increases w/ increasing rural heat  where no green infrastructure 
+\end{itemize}
 \end{frame}
 
 \subsection{Numerical Model}
@@ -182,8 +199,7 @@ mioa        &      0.72 &  0.56 & 0.43 \\
 $r^2$   &      0.48 &  0.29 & 0.23 \\
 \bottomrule
 \end{tabular}
-
-
+RMSE within the reported range of WRF agreement that literature says "agrees well". 
 \end{frame}
 
 \begin{frame}
@@ -191,6 +207,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/diurnal_model.png}
 \end{figure}
+Diurnal cycle differs from observations. 
 \end{frame}
 
 \begin{frame}
@@ -198,6 +215,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/spatialvariability_model.png}
 \end{figure}
+Spatial variability lower than in observations, particularly for afternoon
 \end{frame}
 
 \begin{frame}
@@ -205,6 +223,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover_boxplots_model.png}
 \end{figure}
+Variability in landcover is an important factor in determining spatial variability of modelled 2 meter temperature
 \end{frame}
 
 \begin{frame}
@@ -212,6 +231,8 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover_model.png}
 \end{figure}
+\item Model does not reproduce continuous relationship between NDVI and $T_2$
+\item Model underestimates cooling affect of green infrastructure
 \end{frame}
 
 \begin{frame}
@@ -219,6 +240,10 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=.75\textwidth]{../figures/heat_model.png}
 \end{figure}
+\begin{itemize}
+\item Model does not reproduce decrease of 6am UHI with increasing rural $T_2$
+\item Model underestimates increase of 4pm UHI with increasing rural $T_2$
+\end{itemize}
 \end{frame}
 
 
@@ -229,6 +254,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 
 \includegraphics[width=.75\textwidth]{../figures/synoptic_16pm.png}
 \end{figure}
+Model seems to capture the synoptic weather patterns, so boundary conditions not causing the problem. 
 \end{frame}
 
 \section{Conclusions} 
