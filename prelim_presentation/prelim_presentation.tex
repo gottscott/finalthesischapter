@@ -44,10 +44,11 @@
 \begin{frame}
 Based on this, I think these are important policy-relevant questions about the UHI:  
 \begin{enumerate}
-\item How does urban heat island intensity vary throughout the day? 
-\item How variable is urban temperature? 
 \item How does green infrastructure affect urban heat island intensity? 
 \item How does urban heat intensity vary during heatwaves? 
+\item How does urban heat island intensity vary throughout the day? 
+\item How variable is urban temperature? 
+
 \end{enumerate}
 \end{frame}
 
@@ -58,7 +59,7 @@ Based on this, I think these are important policy-relevant questions about the U
 Given that data is a limiting factor, models can be important. Looking at 50 most cited studies using the WRF model :
 %\tiny{Chen, 2011}: 
 \begin{itemize}
-\item Urban simulations conclude that WRF performs well
+\item Urban simulation studies conclude that WRF performs well
 
 \item Mean RMSEs for 2-meter temperature are $0.6-4.0^\circ C$.
  
@@ -109,16 +110,22 @@ We subtract off this bias from all iButton observations.
 
 \begin{frame}
 \frametitle{Diurnal variation of urban heat intensity}
+UHI largest in morning, smallest at night. 
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/diurnal.png}
+\includegraphics[width=.75\textwidth]{../figures/diurnal.png}
 \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Spatial variability of urban temperature}
 \begin{figure}
-\includegraphics[width=\textwidth]{../figures/spatialvariability.png}
+\includegraphics[width=.65\textwidth]{../figures/spatialvariability.png}
 \end{figure}
+\begin{itemize}
+\item average temperature difference across sites is several degrees at most
+\item spatial variability lower at 6 am than at 4pm
+\item green spaces more variable than non-green spaces 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -126,6 +133,11 @@ We subtract off this bias from all iButton observations.
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover_boxplots.png}
 \end{figure}
+
+\begin{itemize}
+\item Variability in vegetation is an important factor in determining spatial variability of 2 meter temperature
+\item Observations in green sites are significantly cooler than impervious sites.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -133,13 +145,19 @@ We subtract off this bias from all iButton observations.
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover.png}
 \end{figure}
+Variability in NDVI is an important factor in determining spatial variability of 2 meter temperature
 \end{frame}
 
 \begin{frame}
 \frametitle{Heatwaves}
 \begin{figure}
-\includegraphics[width=.75\textwidth]{../figures/heat.png}
+\includegraphics[width=.5\textwidth]{../figures/heat_reverse.png}
 \end{figure}
+\begin{itemize}
+\item 6am temp decreases with increasing rural heat in all sites
+\item 4pm temp increases with increasing rural heat in parks/forests
+\item 4pm temp increases w/ increasing rural heat  where no green infrastructure 
+\end{itemize}
 \end{frame}
 
 \subsection{Numerical Model}
@@ -184,6 +202,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \end{tabular}
 
 
+RMSE within the reported range of WRF agreement that literature says "agrees well". 
 \end{frame}
 
 \begin{frame}
@@ -191,6 +210,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/diurnal_model.png}
 \end{figure}
+Diurnal cycle differs from observations in timing and intensity. 
 \end{frame}
 
 \begin{frame}
@@ -198,6 +218,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/spatialvariability_model.png}
 \end{figure}
+Spatial variability lower than in observations, particularly for afternoon
 \end{frame}
 
 \begin{frame}
@@ -205,6 +226,7 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover_boxplots_model.png}
 \end{figure}
+Variability in landcover is an important factor in determining spatial variability of modelled 2 meter temperature
 \end{frame}
 
 \begin{frame}
@@ -212,23 +234,33 @@ $r^2$   &      0.48 &  0.29 & 0.23 \\
 \begin{figure}
 \includegraphics[width=\textwidth]{../figures/landcover_model.png}
 \end{figure}
+\begin{itemize}
+\item Model does not reproduce continuous relationship between NDVI and $T_2$
+\item Model underestimates cooling affect of green infrastructure
+
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Heatwaves}
 \begin{figure}
-\includegraphics[width=.75\textwidth]{../figures/heat_model.png}
+\includegraphics[width=.5\textwidth]{../figures/heat_model.png}
 \end{figure}
+\begin{itemize}
+\item Model does not reproduce decrease of 6am UHI with increasing rural $T_2$
+\item Model underestimates increase of 4pm UHI with increasing rural $T_2$
+\end{itemize}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Heatwaves}
 \begin{figure}
-\includegraphics[width=.75\textwidth]{../figures/synoptic_6am.png}
+\includegraphics[width=.5\textwidth]{../figures/synoptic_6am.png}
 
-\includegraphics[width=.75\textwidth]{../figures/synoptic_16pm.png}
+\includegraphics[width=.5\textwidth]{../figures/synoptic_16pm.png}
 \end{figure}
+Model seems to capture the synoptic weather patterns, so boundary conditions not causing the problem. 
 \end{frame}
 
 \section{Conclusions} 
