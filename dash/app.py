@@ -26,10 +26,10 @@ meta = meta.set_index(meta.index.astype('float64'), drop = False)
 app = dash.Dash()
 
 app.layout = html.Div([
-    html.Div(
-        html.Pre(id='lasso', style={'overflowY': 'scroll', 'height': '100vh'}),
-        className="three columns"
-    ),
+#    html.Div(
+#        html.Pre(id='lasso', style={'overflowY': 'scroll', 'height': '100vh'}),
+#        className="three columns"
+#    ),
 
     html.Div(
         className="nine columns",
@@ -68,11 +68,11 @@ app.layout = html.Div([
 #})
 
 
-@app.callback(
-    Output('lasso', 'children'),
-    [Input('graph', 'selectedData')])
-def display_data(selectedData):
-    return json.dumps(selectedData, indent=2)
+#@app.callback(
+#    Output('lasso', 'children'),
+#    [Input('graph', 'selectedData')])
+#def display_data(selectedData):
+#    return json.dumps(selectedData, indent=2)
 ###
 
 
