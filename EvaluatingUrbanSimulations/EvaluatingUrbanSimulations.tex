@@ -1,0 +1,895 @@
+%% 11/23/2015
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AGUJournalTemplate.tex: this template file is for articles formatted with LaTeX
+%
+% This file includes commands and instructions
+% given in the order necessary to produce a final output that will
+% satisfy AGU requirements. 
+%
+% You may copy this file and give it your
+% article name, and enter your text.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PLEASE DO NOT USE YOUR OWN MACROS
+% DO NOT USE \newcommand, \renewcommand, or \def, etc.
+%
+% FOR FIGURES, DO NOT USE \psfrag or \subfigure.
+% DO NOT USE \psfrag or \subfigure commands.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% All questions should be e-mailed to latex@agu.org.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Step 1: Set the \documentclass
+%
+% There are two options for article format:
+%
+% 1) PLEASE USE THE DRAFT OPTION TO SUBMIT YOUR PAPERS.
+% The draft option produces double spaced output.
+% 
+% 2) numberline will give you line numbers.
+
+%% To submit your paper:
+\documentclass[draft,linenumbers]{agujournal}
+\draftfalse
+
+%% For final version.
+% \documentclass{agujournal}
+
+% Now, type in the journal name: \journalname{<Journal Name>}
+
+% ie, \journalname{Journal of Geophysical Research}
+%% Choose from this list of Journals:
+%
+% JGR-Atmospheres
+% JGR-Biogeosciences
+% JGR-Earth Surface
+% JGR-Oceans
+% JGR-Planets
+% JGR-Solid Earth
+% JGR-Space Physics
+% Global Biochemical Cycles
+% Geophysical Research Letters
+% Paleoceanography
+% Radio Science
+% Reviews of Geophysics
+% Tectonics
+% Space Weather
+% Water Resource Research
+% Geochemistry, Geophysics, Geosystems
+% Journal of Advances in Modeling Earth Systems (JAMES)
+% Earth's Future
+% Earth and Space Science
+%
+%
+
+\journalname{JGR-Atmospheres}
+
+% 25 publication units (1 unit = 500 words or 1 table or figure; title, plain language summary, author lists, references, and all supplements are excluded)
+% 9 figures, 3 tables, 
+\begin{document}
+
+%% ------------------------------------------------------------------------ %%
+%  Title
+% 
+% (A title should be specific, informative, and brief. Use
+% abbreviations only if they are defined in the abstract. Titles that
+% start with general keywords then specific terms are optimized in
+% searches)
+%
+%% ------------------------------------------------------------------------ %%
+
+% Example: \title{This is a test title}
+
+\title{Evaluating Urban Simulations with a High Resolution Sensor Network in Baltimore, Maryland.}
+
+%% ------------------------------------------------------------------------ %%
+%
+%  AUTHORS AND AFFILIATIONS
+%
+%% ------------------------------------------------------------------------ %%
+
+% Authors are individuals who have significantly contributed to the
+% research and preparation of the article. Group authors are allowed, if
+% each author in the group is separately identified in an appendix.)
+
+% List authors by first name or initial followed by last name and
+% separated by commas. Use \affil{} to number affiliations, and
+% \thanks{} for author notes.  
+% Additional author notes should be indicated with \thanks{} (for
+% example, for current addresses). 
+
+% Example: \authors{A. B. Author\affil{1}\thanks{Current address, Antarctica}, B. C. Author\affil{2,3}, and D. E.
+% Author\affil{3,4}\thanks{Also funded by Monsanto.}}
+
+%\authors{A. A. Scott\affiliation{1}, H. Badr\affiliation{1}, D. W. Waugh\affiliation{1}, and B. Zaitchik\affiliation{1}}
+\authors{A. A. Scott, H. Badr, D. W. Waugh, B. Zaitchik}
+
+\affiliation{1}{Johns Hopkins University Department of Earth and Planetary Sciences}
+% \affiliation{2}{Second Affiliation}
+% \affiliation{3}{Third Affiliation}
+% \affiliation{4}{Fourth Affiliation}
+
+%\affiliation{=number=}{=Affiliation Address=}
+%(repeat as many times as is necessary)
+
+%% Corresponding Author:
+% Corresponding author mailing address and e-mail address:
+
+% (include name and email addresses of the corresponding author.  More
+% than one corresponding author is allowed in this LaTeX file and for
+% publication; but only one corresponding author is allowed in our
+% editorial system.)  
+
+% Example: \correspondingauthor{First and Last Name}{email@address.edu}
+
+\correspondingauthor{Anna Scott}{annascott@jhu.edu}
+
+%% Keypoints, final entry on title page.
+
+% Example: 
+% \begin{keypoints}
+% \item	List up to three key points (at least one is required)
+% \item	Key Points summarize the main points and conclusions of the article
+% \item	Each must be 100 characters or less with no special characters or punctuation 
+% \end{keypoints}
+
+%  List up to three key points (at least one is required)
+%  Key Points summarize the main points and conclusions of the article
+%  Each must be 100 characters or less with no special characters or punctuation 
+
+\begin{keypoints}
+%\item = enter point 1 here = 
+%\item = enter point 2 here = 
+%\item = enter point 3 here = 
+
+\item The "usual" statistics show that model agrees well with observations, though hourly agreement is poor for 6 and 16 o'clock
+\item Modelled UHI several degrees lower than observations
+\item Diurnal UHI pattern differs in timing \& intensity
+\item Modelled UHI less spatially variable than observations 
+\item Differences in landcover cause temperature variability in both model and observation
+\item Variability during heatwaves by landcover not captured by model
+
+\end{keypoints}
+
+%% ------------------------------------------------------------------------ %%
+%
+%  ABSTRACT
+%
+% A good abstract will begin with a short description of the problem
+% being addressed, briefly describe the new data or analyses, then
+% briefly states the main conclusion(s) and how they are supported and
+% uncertainties. 
+%% ------------------------------------------------------------------------ %%
+
+%% \begin{abstract} starts the second page 
+
+\begin{abstract}
+Understanding the urban heat island is important for policy and health. Urban simulations are often evaluated using a few observation stations. While many papers are motivated by policy concerns, their evaluation metrics do not reflect this. We first identify several critical characteristics of Baltimore's UHI using a novel dataset collected by over 100 low-cost thermometer/hygrometers. We evaluate the model using these characteristics and show that WRF fails to capture several UHI properties that are important. 
+\end{abstract}
+
+
+%% ------------------------------------------------------------------------ %%
+%
+%  TEXT
+%
+%% ------------------------------------------------------------------------ %%
+
+%%% Suggested section heads:
+% \section{Introduction}
+% 
+% The main text should start with an introduction. Except for short
+% manuscripts (such as comments and replies), the text should be divided
+% into sections, each with its own heading. 
+
+% Headings should be sentence fragments and do not begin with a
+% lowercase letter or number. Examples of good headings are:
+
+% \section{Materials and Methods}
+% Here is text on Materials and Methods.
+%
+% \subsection{A descriptive heading about methods}
+% More about Methods.
+% 
+% \section{Data} (Or section title might be a descriptive heading about data)
+% 
+% \section{Results} (Or section title might be a descriptive heading about the
+% results)
+% 
+% \section{Conclusions}
+
+
+\section{Introduction}\label{sec:intro}
+Heat exposure is one of the deadliest forms of climate hazards. Rising global temperatures raise the public health and economic consequences of heat exposure. In the US, an average of 600 people a year die from heat exposure. In resource-poor settings, the death toll is even higher. 
+
+Urban alterations to the natural landscape raise temperatures, a phenomena known as the urban heat island that is one of the most significant ways in which humans alter the atmosphere (Kai or Zhou? and Kalnay). This creates the possibility that cities may be more affected by the consequences of heat exposure than outlying rural areas. 
+
+Urban simulations using the WRF (Chen 2011) modeling system have been evaluated using data from cities around the world and climate zones ranging from desert to sub-tropical. All studies conclude that WRF performs well for modelling the urban environment, with mean RMSEs for 2-meter temperature being reported as ranging from $0.6-4.0^\circ C$. Fewer studies evaluate the model at the resolution at which it is run. 
+
+Additionally, the UHI literature is not aligned with policy priorities of urban planners. Policy literature suggests that there is interest in incorporating urban heat island mitigation into long term planning \cite{shickman2016current}. However, much of the UHI literature focuses on attributing and understanding the causes of urban heating, while UHI mitigation is less studied \cite{huang2018urban}; accordingly, cities cite a lack of local data and knowledge as hindering their progress \cite{hewitt2014cool}. Thus, understanding policy priorities is key to aiding urban heat mitigation efforts. 
+
+Cities list mitigating the impacts of heatwaves a key motivator of urban heat mitigation policies \citep{hewitt2014cool}. Thus, urban modeling studies simulating heat waves should focus their evaluation on metrics related to heatwaves. 
+
+Our paper focuses on using our observations and models to answer policy questions we find least addressed by previous studies. We identify several questions of interest to the policy maker and see how well WRF does at answering these questions: 
+
+To address these questions, we quantify answers to the following questions: 
+1) How does urban heat island intensity vary throughout the day? 
+2) How variable is urban temperature? 
+3) How does landcover affect urban heat island intensity? 
+4) How does urban heat intensity vary during heatwaves? 
+
+In this study, we use a novel observational data set to analyze temperature variability in Baltimore, Md. and evaluate a numerical simulation. This 
+
+\section{Literature Review}
+
+We examined the 50 most cited papers which use or cite the Weather, Research, and Forecasting (WRF) Model (Chen 2011). Most of these studies use WRF to model the urban environment for the purposes of... 
+
+In this sample of the literature, authors evaluate the accuracy of WRF in different ways. This includes using observations of temperature (eg, \citet{}), wind, humidity, precipitation, pollutant concentrations \citep{}, and energy fluxes. Evaluations occur at the surface, in the near-surface atmosphere, as well as aloft using atmospheric profilers and flight campaigns. In the case of surface observations, studies compared data from the model pixel located nearest to the observation station. Statistical metrics such as RMSE, correlation, bias, hit rate, index of agreement, coefficient of determination are used to quantifying model agreement with observations.  
+
+Cities examined included Asian agglomerations of Shanghai, Singapore, Hangzhou, Hong Kong, and Tokyo, North American cities of Phoenix, Houston, Los Angeles, and Baltimore-Washington, and European cities of Paris, London, and Rotterdam. The only Southern Hemisphere city examined was Sydney, Australia \cite{argueso2014temperature}. One study examined an fictional, idealized city in continental Europe \citep{theeuwes2014seasonal}, and several studies examined multiple sites. No cities in Africa, South America, or Central or Southern Asia were included in this sample.  Several areas have been examined multiple times: Baltimore-Washington, Shanghai, 
+
+Several of these studies focus on evaluation of WRF by varying parameterizations or boundary layer physics options. Most studies use WRF as a tool to understand physical processes that drive urban temperature or weather events. Others use WRF to explore UHI mitigation measures. A common question was quantifying the role of urbanization in temperature trends.
+
+While all of these papers examined urban temperature, only 13 explicitly examined urban-rural differences. Of these, even fewer used urban-rural differences as an evaluation metric. \citet{li2013synergistic} examined UHI. 
+Other UHI characteristics, such as the spatial variability of temperature, were not used to evaluate simulations. 
+
+Of the papers that used WRF as a tool to explore urban heating mitigation measures, 
+
+\section{Materials and Methods}\label{sec:methods}
+
+\subsection{Observations}
+Temperature observations in this paper come from a network of iButton thermometer/hygrometers located throughout the Greater Baltimore area (Fig.~\ref{fig:map}b). Baltimore is a mid-sized American city with a small, central downtown core of buildings greater than three stories, neighborhoods dominated by two-three story brick rowhomes, and outlying higher-elevation neighborhoods and suburbs with grass lawns, multi-level detached homes, and trees. Tree canopy covered 28 percent of Baltimore in 2015. 
+%@article{grove2011urban,
+%  title={Urban Tree Canopy Prioritization (UTC): Experience from Baltimore},
+%  author={Grove, J Morgan and Locke, Dexter},
+%  year={2011},
+%  publisher={Nature Publishing Group}
+%}
+
+iButtons were installed in 91 sites beginning in May 2016, with the full network installed by July 1, 2016; at the end of the summer, 85 sensors remained. Thus, in this study we examine data taken between July 1, 2016 and August 30, 2016. Nearly all sites (79) were located within Baltimore City; the remaining 6 were north of the city in Baltimore County. During installation, local site data was taken on the surrounding site characteristics: 24 sensors were located in locations dominated by impervious surfaces, 43 were located in locations with grass and low vegetation, 13 sensors with bare or little ground-cover, and 5 sites with a mix of these characteristics. 
+
+Thermometers were housed in a custom shield in a custom, naturally aspirated radiation shield made of WhiteOptics White98 Reflector Film and attached to trees and poles as in Fig.~\ref{fig:ibutton}a using a plastic zip-tie. Out of the 85 sensors, 61 sensors were attached to trees, 17 sensors were attached to metal poles, and 7 were attached to wooden posts. Most of these were estimated to be located in partial shade (38) or full shade (24); the remaining were located in full sun (23). 
+
+Each observation site was given a land use type from the 40-class Moderate Resolution Imaging Spectrometer (MODIS) land type included in WRF. These include high intensity, medium and low intensity, open space, and deciduous forest land types. Table \ref{tab:lcc} shows their corresponding MODIS classifications-for example, we combine the developed, medium intensity classification (MODIS 25) with the developed, low intensity classification (MODIS 24) to make our medium and low intensity category. We also add an urban forest classification, not described by MODIS but available from our own \textit{in situ} site description. For developed land types, this study includes 20-30 sites for each category; only 3 sites are included in the rural/forest area. 
+
+These site classifications correspond to a range of possible vegetative fractions. In order to calculate vegetation fractions quantitatively, we calculate satellite observations of Normalized Digital Vegetation Index (NDVI), the normalized difference of near-infrared light $NIR$ to visible red light $VIS$: 
+\[NDVI = \frac{NIR-VIS}{NIR+VIS}\]
+at each observation site. The data is downloaded from Landsat-8 using the Google Earth Engine platform. We selected the least cloudy scene during the period June 1, 2016- August 15, 2016. 
+
+iButtons have been evaluated in the literature () and have been reported to agree well particularly for nighttime temperatures, but exhibit a warm bias (). Thus, we co-locate one of the iButtons with an Automated Surface Observation System (ASOS) station in downtown Baltimore. This station provides sub-hourly measurements with reported accuracies of $< 0.5^\circ $C. In Fig.\ref{fig:bias}, we compare the ASOS measurements with the iButton measurement. We find that the measurements agree well--the mean difference (iButtons-ASOS) is $0.44^\circ$C the distributions of summertime temperatures for all hours (Fig.~\ref{fig:bias}a) is similar, and the correlation for the two instruments is $r = 0.96$. 
+
+However, hourly measurements agree less well: the 6am error is $-0.29^\circ$C, and the 4pm error is $1.18^\circ$C. The average summertime hourly temperature, Fig.~\ref{fig:bias}c), shows that in addition to a overestimate of afternoon temperature, the diurnal temperature cycle differs between the instruments. Whereas the iButton indicates that $T_{min}$ occurs at 6am, the ASOS instrument indicates 5am. This is also born out in the fact that the mean error for $T_{min}$ is lower than for 6am data, though the same is not true for $T_{max}$ and 4pm data. In order to compensate for this instrument bias, we subtract the hourly difference between the iButton and the ASOS station as shown in Fig.~\ref{fig:bias}c) from each iButton instrument on each day
+
+\subsection{Numerical Model}
+This paper uses the Weather, Research, and Forecasting Model (WRF) vx.x. Get Hamada to help fill in here. 
+
+In this paper, we refer to the following variables from the model: 2-meter temperature (T2),
+ land-use type (LU INDEX), latent heat (LH), 
+ sensible heat (HFX), ground flux (GRDFLX), 
+incoming shortwave radiation (SWDNB),
+reflected outgoing shortwave radiation (SWUPB), 
+reflected incoming longwave radiation (LWDNB) and outgoing longwave radiation (LWUPB).  We compute the net energy flux $F$ as
+
+\begin{equation}
+%\label{eq:seb}
+F= r_{net} -LH - HFX - GRDFLX
+\end{equation}
+where the net radiation flux $$r_{net}=LWDNB-LWUPB + SWNDB-SWUPB$$. 
+  
+\subsection{Evaluation Metrics}
+
+We evaluate the simulated 2-meter temperature against the observation in the nearest grid box using several statistical methods. First, the root-mean squared error $RMSE$, comparing observations $O_i$ to simulation data $S_i$:  
+\begin{equation}%\label{eq:rmse}
+RMSE = \sum_{i=1}^{N} \left(S_i - O_i\right)^2
+\end{equation}
+. The $RMSE$ in this case has units of $^\circ$C$^2$. Next, we examine the Pearson correlation $r$ and its corresponding p-value $p$, indicating the probability that the given correlation is due to chance. The coefficient of determination, $r^2$. We also examine the Modified Index of Agreement or $MIOA$ (Willmott 1981), varying between \(0\) and \(1\), with \(1\) indicating a perfect match and zero indicating no match: 
+\begin{equation}
+md = 1 - \frac{\sum_{i=1}^{N}(O_{i}-S_{i})^{j}}{\sum_{i=1}^{N}|(S_{i}-\bar{O})|+|(O_{i}-\bar{O})|^{j}}
+%\label{eq:modified_index_of_agreement}
+\end{equation}
+where $j=1$. 
+Then, we calculate the percent bias (PBIAS), where a value of zero is a perfect match; positive values indicate that the iButton is overestimating the reading while negative values indicate that the sensor is underestimating the reading.
+\begin{equation}
+PBIAS = \frac{\sum_{i=1}^{N}(O_{i}-S_{i})}{\sum_{i=1}^{N}O_{i}}*100
+%\label{eq:pbias}
+\end{equation}
+
+\subsection{Statistics}
+To quantify spatial variability within the urban heat island, we calculate the semi-variance. The semi-variance provides a measure of spatial variance as a function of distance; it indicates an average difference between two data points $f(a), f(a+h)$ given their distance apart $h$: 
+$$ s(h) = \frac{1}{2 N(h)} \sum _{N(h)} \left(f(a+h) -f(a)\right)^2 $$
+Here, we calculate the experimental semi-variance by making $h$ a discrete variable equal to fixed-width distances of 1 km for modelled data and .1 km for observed data. 
+
+To separate temporal error from error induced by spatial variability, we we calculate each of the above metrics for spatially average temperature and temporally averaged temperature. We refer to temporally averaged temperature as $\overline{T}$ and spatially averaged temperature as $\langle T \rangle$. 
+\section{Results}\label{sec:results}
+\subsection{Histograms}
+
+\subsection{Model evaluation: statistics}
+
+
+\subsection{Diurnal}
+We examine diurnal variability in temperature from X sites. Fig~\ref{fig:diurnal}a shows this for sites in five different land categories: developed high intensity, developed medium and low intensity, developed open space, rural forest, and urban forest. The coolest sites throughout the day are located in rural forests
+
+UHI largest in morning, smallest at night. 
+
+
+
+\subsection{Semivariance/spatial variability}
+Next, we examine spatial variability. We next examine how different locations vary from one aonther. Figure Xa shows a semi-variogram: the semi-variance (in units of variance or ∘C2∘C2 )is plotted against distance for all locations at 6am. For sites within one kilometer of one another, the semi-variance is less than 0.50.5, which translates to temperature differences of 0.7∘0.7∘C on average. As distance between sites increases, the semi-variance increases linearly, indicating that farther away points are more and more dissimilar. While the semi-variance is noisier at longer distances, this is due to having fewer datapoints at certain distances. This may be why the semi-variogram is exceeds its theoretical limit of the sample variance for some of the distances between 15-25 kilometers. Overall, we see that sites closer together are more similar and farther sites are more dissimilar.
+
+It is possible that variability in the land type drives temperature variability. In Figure Xb, we look at sites dominated by impervious landcover at 6am and see that the variogram follows a similar pattern to that of Fig.~Xa: closer sites are similar and farther sites are dissimilar. At distances beyond 15km, the semi-variances remain close to the variance of X. This is in contrast with the semi-variogram for green landcovers at 6am (Fig.Xc). Though overall green sites have lower variance, the semi-variance increases with distance without evidence of a limit.
+
+In the afternoon, variability is higher for variograms of all sites, impervious sites, and green sites at 6pm (Fig.Xd,e,f). The variance for all data, 3.9∘C3.9∘C (Fig.Xd), translates into an average temperature difference of 1.98∘∘ degrees, much higher than that at 6am. Impervious spaces remain dissimilar for the range of distances examined (Fig.~Xe). Greenspaces grow dissimilar at a constant rate, but remain less variable than impervious spaces.
+
+This suggests that: average temperature difference across sites is several degrees at most, spatial variability lower at 6 am than at 4pm (PUT NUMBERS HERE), and green spaces more variable than non-green spaces This implies that temperature variability within the urban heat island is lower than suggested by satellite land surface temperature products. Futhermore, as semi-variograms fit to are used in Kreiging spatial estimation technique this suggests that the simple Kreiging model would accurately model temperature data in an urban setting.
+
+\subsection{Landcover}
+Green infrastructure is one commonly cited means to combat urban heating (cite EPA toolkit). There are many types of green infrastructure, in Baltimore, parks, fields, and forested areas are common. We find that 
+observations in green sites are significantly cooler than impervious sites. This is particularly true at 6 am, when $\overline{T}_{green} = $ and $\overline{T}_{imp} = $.
+However, green sites are more variable: $\sigma_{green} = $ whereas $\sigma_{imp} = $. This indicates that using green infrastructure as a heat mitigation strategy may vary in both timing and effectiveness. 
+
+Because there is no common index for assessing green infrastructure, we turn to satellite-measured NDVI, a proxy for photosynthetic activity that can indicate the presence of vegetation. Our observations indicate that variability in NDVI is an important factor in determining spatial variability of 2 meter temperature. 
+There is also a relationship between temperature and satellite NDVI measurements, a proxy for surface vegetation. In Fig. X, NDVI is plotted against temperature for a) all times, showing a negative relationship between vegetation and temperature. The relationship is stronger for 6 am temperature (r = -0.68, Fig.~Xb) than in the afternoon (r = -0.21, Fig.~Xc). 
+
+\subsection{Surface Energy Budget}
+In order to diagnose what causes the discrepencies between model and observation, we turn to the surface energy budget. In Fig.~\ref{fig:seb}a, we show the diurnal cycle of the net energy flux $F$ averaged over the summertime for each land type. We see that $F$ is highest for  High intensity land, with medium, low and open space having the same net flux. Rural forests show the lowest net flux. Error bars show that for each land type, there is little spatial variability.  
+
+To diagnose why, we turn to the components of the surface energy budget (eq.~\ref{eq:seb}). The sensible heat flux (Fig.~\ref{fig:seb}b) is highest for high intensity land, and lowest for the rural forest. 
+
+In WRF, emissivity is fixed for each land cover class, though the vegetative fraction is not. Emissivity for high intensity land is $0.88$, lower than 
+
+\section{Conclusions}\label{sec:conclusions}
+
+%Text here ===>>>
+
+%%
+
+%  Numbered lines in equations:
+%  To add line numbers to lines in equations,
+%  \begin{linenomath*}
+%  \begin{equation}
+%  \end{equation}
+%  \end{linenomath*}
+
+
+
+%% Enter Figures and Tables near as possible to where they are first mentioned:
+%
+% DO NOT USE \psfrag or \subfigure commands.
+%
+% Figure captions go below the figure.
+% Table titles go above tables;  other caption information
+%  should be placed in last line of the table, using
+% \multicolumn2l{$^a$ This is a table note.}
+%
+%----------------
+% EXAMPLE FIGURE
+%
+\begin{figure}[h]
+\centering
+% when using pdflatex, use pdf file:
+% \includegraphics[width=20pc]{figsamp.pdf}
+% when using dvips, use .eps file:
+% \includegraphics[width=20pc]{figsamp.eps}\
+\includegraphics[width=20pc]{../figures/figure01map.png}
+\caption{a) model domains for the simulations and b) map of land type in Baltimore City (colors) and observation sites (triangles).}
+\label{fig:map}
+ \end{figure}
+ 
+ \begin{figure}[h]
+\centering
+\caption{a) schematic of iButton and custom radiation shield and b) picture of an observation site in Baltimore.}
+\label{fig:ibutton}
+ \end{figure}
+ 
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/ibuttonbias.eps}
+\caption{A comparison of iButton (blue solid line) and ASOS (grey dashed line) temperature observations: a) distribution of temperatures for all hours,  6am, and 4pm and b) average summertime temperature by hour. In a), the solid black line indicates the mean, the box surrounds the first through third quartiles, and whiskers delineate the wide interquartile range, 1.5 times the first through third quartiles. Data points falling outside this range are marked as x. }
+\label{fig:bias}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/diurnal.eps}
+\caption{Average summer temperature (top row) and temperature difference (bottom row) by hour for observations (left column) and model (right column) for each landcover type. N indicates the number of model grid points included in each land type. }
+\label{fig:diurnal}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/landcover_distribution.eps}
+\caption{Distribution of 2-meter temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), and 4pm (bottom row) by land type. }
+\label{fig:hist}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/semivariogram_obs.eps}
+\caption{Semi-variograms showing distance versus the semi-variance (Eq.~\ref{eq:semivariance}) for observed temperature at 6am (top row) and 4pm (bottom row) for each land type: (a,f) all land types, (b,g) high intensity, (c,h) medium and low intensity, and (d,i) open space. Dashed line indicates the sample variance. 
+}\label{fig:semiv_obs}
+
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/semivariogram_model.eps}
+\caption{As in Fig.~\ref{fig:semiv_obs} but with model temperature.}
+\label{fig:semiv_model}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/vegetation_fraction.eps}
+\caption{Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
+\label{fig:veg}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/SEB.eps}
+\caption{Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up). Error bars represent spatial variability for time-mean hourly values.}
+\label{fig:seb}
+\end{figure}
+%%%%%% extra figures
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/diurnal_model.eps}
+\caption{As in Fig. X but for the whole model domain. (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
+\label{fig:diurnal_wd}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/landcover_distribution.eps}
+\caption{As in Fig. X but for the whole model domain: Distribution of 2-meter temperature for (a) all hours, (b) 6am (middle row), (c) and 4pm by land type. }
+\label{fig:hist_wd}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/spatialvariability_model.eps}
+\caption{As in Fig. X but for the whole model domain: semivariogram as in Fig.~\ref{fig:semiv_obs} but with model temperature.}
+\label{fig:semiv_model_wd}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/landcover_model.eps}
+\caption{As in Fig. X but for the whole model domain:  Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
+\label{fig:veg_wd}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/SEB.eps}
+\caption{As in Fig. X but for the whole model domain. Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up).}
+\label{fig:seb_wd}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/SEB_all_landtypes.eps}
+\caption{As in Fig. X but for the whole model domain and all land types. Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up).}
+\label{fig:seb_wd}
+\end{figure}
+
+% ---------------
+% EXAMPLE TABLE
+%
+% \begin{table}
+% \caption{Time of the Transition Between Phase 1 and Phase 2$^{a}$}
+% \centering
+% \begin{tabular}{l c}
+% \hline
+%  Run  & Time (min)  \\
+% \hline
+%   $l1$  & 260   \\
+%   $l2$  & 300   \\
+%   $l3$  & 340   \\
+%   $h1$  & 270   \\
+%   $h2$  & 250   \\
+%   $h3$  & 380   \\
+%   $r1$  & 370   \\
+%   $r2$  & 390   \\
+% \hline
+% \multicolumn{2}{l}{$^{a}$Footnote text here.}
+% \end{tabular}
+% \end{table}
+\begin{table}
+\centering
+\begin{tabular}{l l l l c}
+Landcover & Description &  Modis \# & $\epsilon$ & N  \\
+High Intensity & Developed, high intensity & 26& 0.88 & 29 \\
+Medium and Low Intensity & Developed, & 25,24& 0.9, 0.88 & 24\\
+Open Space& Developed, open space &23 & 0.97 &  21\\
+Rural forest&Deciduous forest & 28& 0.93& 3\\
+Urban forest& Forested sites within Baltimore as described in \cite{} &NA & NA & 16\\
+\end{tabular}
+\caption{Land types, corresponding 40 class MODIS number, their description, corresponding emissivity, and number of observation sites corresponding to the land type.}
+\label{tab:lcc}
+\end{table}
+
+
+\begin{table}
+\centering
+%Time error: 
+\begin{tabular}{lrrrrr}
+%\toprule
+{} &  all data &     6am &   16pm &   min &  max \\
+%\midrule
+rmse        &      4.60 &  4.15 & 6.04 &  3.94 & 2.87 \\
+correlation &      0.89 &  0.84 & 0.76 &  0.82 & 0.90 \\
+p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
+pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
+mioa        &      0.93 &  0.83 & 0.85 &  0.82 & 0.92 \\
+r\_squared   &      0.80 &  0.71 & 0.58 &  0.67 & 0.81 \\
+%\bottomrule
+\end{tabular}
+
+
+\caption{Model error due to temporal variability: evaluation of model against observations for time-mean temperatures for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
+\label{tab:time_error}
+\end{table}
+
+\begin{table}
+\centering
+%Space error: 
+\begin{tabular}{lrrrrr}
+%\toprule
+{} &  all data &     6am &   16pm &   min &  max \\
+%\midrule
+rmse        &      0.93 &  3.32 & 3.70 &  2.74 & 6.09 \\
+correlation &      0.64 &  0.52 & 0.46 &  0.54 & 0.40 \\
+p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
+pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
+mioa        &      0.69 &  0.55 & 0.45 &  0.57 & 0.42 \\
+r\_squared   &      0.41 &  0.27 & 0.21 &  0.29 & 0.16 \\
+%\bottomrule
+\end{tabular}
+
+
+\caption{Model error due to spatial variability: evaluation of model against observations for temperatures averaged over space at each hour for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
+\label{tab:space_error}
+\end{table}
+%% SIDEWAYS FIGURE and TABLE 
+% AGU prefers the use of {sidewaystable} over {landscapetable} as it causes fewer problems.
+%
+% \begin{sidewaysfigure}
+% \includegraphics[width=20pc]{figsamp}
+% \caption{caption here}
+% \label{newfig}
+% \end{sidewaysfigure}
+% 
+%  \begin{sidewaystable}
+%  \caption{Caption here}
+% \label{tab:signif_gap_clos}
+%  \begin{tabular}{ccc}
+% one&two&three\\
+% four&five&six
+%  \end{tabular}
+%  \end{sidewaystable}
+
+%% If using numbered lines, please surround equations with \begin{linenomath*}...\end{linenomath*}
+%\begin{linenomath*}
+%\begin{equation}
+%y|{f} \sim g(m, \sigma),
+%\end{equation}
+%\end{linenomath*}
+
+%%% End of body of article
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional Appendix goes here
+%
+% The \appendix command resets counters and redefines section heads
+%
+% After typing \appendix
+%
+%\section{Here Is Appendix Title}
+% will show
+% A: Here Is Appendix Title
+%
+%\appendix
+%\section{Here is a sample appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Optional Glossary, Notation or Acronym section goes here:
+%
+%%%%%%%%%%%%%%  
+% Glossary is only allowed in Reviews of Geophysics
+%  \begin{glossary}
+%  \term{Term}
+%   Term Definition here
+%  \term{Term}
+%   Term Definition here
+%  \term{Term}
+%   Term Definition here
+%  \end{glossary}
+
+%
+%%%%%%%%%%%%%%
+% Acronyms
+%   \begin{acronyms}
+%   \acro{Acronym}
+%   Definition here
+%   \acro{EMOS}
+%   Ensemble model output statistics 
+%   \acro{ECMWF}
+%   Centre for Medium-Range Weather Forecasts
+%   \end{acronyms}
+
+%
+%%%%%%%%%%%%%%
+% Notation 
+%   \begin{notation}
+%   \notation{$a+b$} Notation Definition here
+%   \notation{$e=mc^2$} 
+%   Equation in German-born physicist Albert Einstein's theory of special
+%  relativity that showed that the increased relativistic mass ($m$) of a
+%  body comes from the energy of motion of the body—that is, its kinetic
+%  energy ($E$)—divided by the speed of light squared ($c^2$).
+%   \end{notation}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  ACKNOWLEDGMENTS
+%
+% The acknowledgments must list:
+%
+% •	All funding sources related to this work from all authors
+%
+% •	Any real or perceived financial conflicts of interests for any
+%	author
+%
+% •	Other affiliations for any author that may be perceived as
+% 	having a conflict of interest with respect to the results of this
+% 	paper.
+%
+% •	A statement that indicates to the reader where the data
+% 	supporting the conclusions can be obtained (for example, in the
+% 	references, tables, supporting information, and other databases).
+%
+% It is also the appropriate place to thank colleagues and other contributors. 
+% AGU does not normally allow dedications.
+
+
+\acknowledgments
+ = enter acknowledgments here =
+
+
+%% ------------------------------------------------------------------------ %%
+%% Citations
+
+% Please use ONLY \citet and \citep for reference citations.
+% DO NOT use other cite commands (e.g., \cite, \citeyear, \nocite, \citealp, etc.).
+
+
+%% Example \citet and \citep:
+%  ...as shown by \citet{Boug10}, \citet{Buiz07}, \citet{Fra10},
+%  \citet{Ghel00}, and \citet{Leit74}. 
+
+%  ...as shown by \citep{Boug10}, \citep{Buiz07}, \citep{Fra10},
+%  \citep{Ghel00, Leit74}. 
+
+%  ...has been shown \citep [e.g.,][]{Boug10,Buiz07,Fra10}.
+
+\bibliography{agusample}
+
+%%  REFERENCE LIST AND TEXT CITATIONS
+%
+% Either type in your references using
+%
+% \begin{thebibliography}{}
+% \bibitem[{\textit{Kobayashi et~al.}}(2003)]{R2013} Kobayashi, T.,
+% Tran, A.~H., Nishijo, H., Ono, T., and Matsumoto, G.  (2003).
+% Contribution of hippocampal place cell activity to learning and
+% formation of goal-directed navigation in rats. \textit{Neuroscience}
+% 117, 1025--1035.
+%
+% \bibitem{}
+% Text
+% \end{thebibliography}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Or, to use BibTeX:
+%
+% Follow these steps
+%
+% 1. Type in \bibliography{<name of your .bib file>} 
+%    Run LaTeX on your LaTeX file.
+%
+% 2. Run BiBTeX on your LaTeX file.
+%
+% 3. Open the new .bbl file containing the reference list and
+%   copy all the contents into your LaTeX file here.
+%
+% 4. Run LaTeX on your new file which will produce the citations.
+%
+% AGU does not want a .bib or a .bbl file. Please copy in the contents of your .bbl file here.
+
+
+%% After you run BibTeX, Copy in the contents of the .bbl file here:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Track Changes:
+% To add words, \added{<word added>}
+% To delete words, \deleted{<word deleted>}
+% To replace words, \replaced{<word to be replaced>}{<replacement word>}
+% To explain why change was made: \explain{<explanation>} This will put
+% a comment into the right margin.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% At the end of the document, use \listofchanges, which will list the
+% changes and the page and line number where the change was made.
+
+% When final version, \listofchanges will not produce anything,
+% \added{<word or words>} word will be printed, \deleted{<word or words} will take away the word,
+% \replaced{<delete this word>}{<replace with this word>} will print only the replacement word.
+%  In the final version, \explain will not print anything.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%
+%\listofchanges
+%%%
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Supporting Information
+%% (Optional) See AGUSuppInfoSamp.tex/pdf for requirements 
+%% for Supporting Information.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+More Information and Advice:
+
+%% ------------------------------------------------------------------------ %%
+%
+%  SECTION HEADS
+%
+%% ------------------------------------------------------------------------ %%
+
+% Capitalize the first letter of each word (except for
+% prepositions, conjunctions, and articles that are
+% three or fewer letters).
+
+% AGU follows standard outline style; therefore, there cannot be a section 1 without
+% a section 2, or a section 2.3.1 without a section 2.3.2.
+% Please make sure your section numbers are balanced.
+% ---------------
+% Level 1 head
+%
+% Use the \section{} command to identify level 1 heads;
+% type the appropriate head wording between the curly
+% brackets, as shown below.
+%
+%An example:
+%\section{Level 1 Head: Introduction}
+%
+% ---------------
+% Level 2 head
+%
+% Use the \subsection{} command to identify level 2 heads.
+%An example:
+%\subsection{Level 2 Head}
+%
+% ---------------
+% Level 3 head
+%
+% Use the \subsubsection{} command to identify level 3 heads
+%An example:
+%\subsubsection{Level 3 Head}
+%
+%---------------
+% Level 4 head
+%
+% Use the \subsubsubsection{} command to identify level 3 heads
+% An example:
+%\subsubsubsection{Level 4 Head} An example.
+%
+%% ------------------------------------------------------------------------ %%
+%
+%  IN-TEXT LISTS
+%
+%% ------------------------------------------------------------------------ %%
+%
+% Do not use bulleted lists; enumerated lists are okay.
+% \begin{enumerate}
+% \item
+% \item
+% \item
+% \end{enumerate}
+%
+%% ------------------------------------------------------------------------ %%
+%
+%  EQUATIONS
+%
+%% ------------------------------------------------------------------------ %%
+
+% Single-line equations are centered.
+% Equation arrays will appear left-aligned.
+
+Math coded inside display math mode \[ ...\]
+ will not be numbered, e.g.,:
+ \[ x^2=y^2 + z^2\]
+
+ Math coded inside \begin{equation} and \end{equation} will
+ be automatically numbered, e.g.,:
+ \begin{equation}
+ x^2=y^2 + z^2
+ \end{equation}
+
+
+% To create multiline equations, use the
+% \begin{eqnarray} and \end{eqnarray} environment
+% as demonstrated below.
+\begin{eqnarray}
+  x_{1} & = & (x - x_{0}) \cos \Theta \nonumber \\
+        && + (y - y_{0}) \sin \Theta  \nonumber \\
+  y_{1} & = & -(x - x_{0}) \sin \Theta \nonumber \\
+        && + (y - y_{0}) \cos \Theta.
+\end{eqnarray}
+
+%If you don't want an equation number, use the star form:
+%\begin{eqnarray*}...\end{eqnarray*}
+
+% Break each line at a sign of operation
+% (+, -, etc.) if possible, with the sign of operation
+% on the new line.
+
+% Indent second and subsequent lines to align with
+% the first character following the equal sign on the
+% first line.
+
+% Use an \hspace{} command to insert horizontal space
+% into your equation if necessary. Place an appropriate
+% unit of measure between the curly braces, e.g.
+% \hspace{1in}; you may have to experiment to achieve
+% the correct amount of space.
+
+
+%% ------------------------------------------------------------------------ %%
+%
+%  EQUATION NUMBERING: COUNTER
+%
+%% ------------------------------------------------------------------------ %%
+
+% You may change equation numbering by resetting
+% the equation counter or by explicitly numbering
+% an equation.
+
+% To explicitly number an equation, type \eqnum{}
+% (with the desired number between the brackets)
+% after the \begin{equation} or \begin{eqnarray}
+% command.  The \eqnum{} command will affect only
+% the equation it appears with; LaTeX will number
+% any equations appearing later in the manuscript
+% according to the equation counter.
+%
+
+% If you have a multiline equation that needs only
+% one equation number, use a \nonumber command in
+% front of the double backslashes (\\) as shown in
+% the multiline equation above.
+
+% If you are using line numbers, remember to surround
+% equations with \begin{linenomath*}...\end{linenomath*}
+
+%  To add line numbers to lines in equations:
+%  \begin{linenomath*}
+%  \begin{equation}
+%  \end{equation}
+%  \end{linenomath*}
+
+
+
