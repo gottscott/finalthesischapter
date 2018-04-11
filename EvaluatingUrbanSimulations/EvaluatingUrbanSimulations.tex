@@ -301,11 +301,33 @@ $$ s(h) = \frac{1}{2 N(h)} \sum _{N(h)} \left(f(a+h) -f(a)\right)^2 $$
 Here, we calculate the experimental semi-variance by making $h$ a discrete variable equal to fixed-width distances of 1 km for modelled data and .1 km for observed data. 
 
 To separate temporal error from error induced by spatial variability, we we calculate each of the above metrics for spatially average temperature and temporally averaged temperature. We refer to temporally averaged temperature as $\overline{T}$ and spatially averaged temperature as $\langle T \rangle$. 
-\section{Results}\label{sec:results}
-\subsection{Histograms}
+\section{Results}\label{sec:results} 
+\subsection{Observations}
+Temperature in summer 2016 ranged from X-X degrees, with an average temperature of X. In comparison with past years, this summer was warmer/cooler/average. Land use affects temperature, and temperature in different sites have different temperatures. Fig.~\ref{fig:hist}a) shows histograms of mean temperature for all hours at each site grouped by land types. For each land type, temperatures are normally  distributed. 
+High intensity land use is hottest, with a mean temperature of X. Medium and low intensity land is cooler, and rural forests are coolest. The standard deviation of temperature is less than 1$^\circ$C in all cases, with open space having the highest standard deviation ($\sigma = 0.89^\circ$ C). We repeat this analysis for mean 6am temperatures in Fig.~\ref{fig:hist}b) and see that similarly, higher intensity land types are hotter than lower intensity land types, with high intensity land the hottest, and rural forest the least hot. Temperatures at 4pm (Fig.~\ref{fig:hist}c) are more variable than those at 6am, with medium and low intensity land types having the highest variability ($\sigma = 1.92$). 
+% Note: add urban forest or urban green category here? 
+
+Next, we examine spatial variability. The time-averaged standard deviation of all data is  We next examine how different locations vary from one aonther. Figure Xa shows a semi-variogram: the semi-variance (in units of variance or $^\circ$C$^2$ )is plotted against distance for all locations at 6am. For sites within one kilometer of one another, the semi-variance is less than 0.50.5, which translates to temperature differences of 0.7∘0.7∘C on average. As distance between sites increases, the semi-variance increases linearly, indicating that farther away points are more and more dissimilar. While the semi-variance is noisier at longer distances, this is due to having fewer datapoints at certain distances. This may be why the semi-variogram is exceeds its theoretical limit of the sample variance for some of the distances between 15-25 kilometers. Overall, we see that sites closer together are more similar and farther sites are more dissimilar.
+
+We next turn to the diurnal variability in temperature. Figure~\ref{fig:diurnal}a shows hourly temperature averaged over sites in each different land type. As suggested by \ref{fig:hist}, high intensity land the hottest land type at every hour, and coolest sites throughout the day are located in rural forests. Urban forests retain heat at night compared to rural forests, remaining hotter than medium and low intensity land types at 6am, but are much cooler during the daytime, staying cooler at 4pm than all developed land types. 
+The temperature differences between sites give rise to a temperature difference, $\Delta T$, between urban, developed sites and the rural, forested sits (Fig.~\ref{fig:diurnal}b). In all land types, this temperature difference is largest in the early morning hours and diminishes throughout the day. The average $\Delta T$ ranges from X to X
+% add values here
+and is highest for high intensity land throughout the day. Open space and rural forests have the lowest temperature difference with respect to rural observations. Open space $\Delta T$ remains fairly constant throughout the day, with a slight increase at 6am and subsequent decrease at 9am. It is possible this is attributable to faster heating in open areas due to more open geometry and less shading. Urban forests, by contrast, are warmer at night than rural areas by several degrees. By 10am, this difference decreases to X$^\circ$C 
+% add values here
+and remains the coolest until 6pm, at which time the differences start to go away. 
+
+%possible paragraph about trees, green impervious? 
+Our land use categorizes sites based on satellite data at a scale of 1km. Sub-kilometer spatial variability is also present, often in the form of presence or absence of local vegetation, such as street trees, small parks, and vegetation like grass or other low plants. In Figure X, we look at diurnal temperature variability for local site vegetation characteristics within developed land types. We see that sites with vegetation present are cooler than those without. Sites dominated by impervious land and having no local vegetation are the hottest. Sites with impervious land and trees (\textit{ie}, street trees in residential areas) are less hot... The coolest sites are in urban forests. Thus, in addition to land use, vegetation variability at sub-kilometer variability affects temperature. 
+
+We have shown how temperature varies by land type and presence of vegetation. We can link some of this spatial variability inside the urban heat island to the abundance of vegetation. In Fig.~\ref{fig:veg} we examine the relationship between NDVI and temperature at all hours, at 6am, and at 4pm, and find that variability in NDVI is an important factor in determining spatial variability of air temperature. In all cases, there is a negative relationship between NDVI and temperature, indicating that vegetation (as observed from above by satellite) is related to cooler temperatures. This relationship is strongest at 6am ($r = -0.68$, $p< 0.05$) and weakest at 4pm ($r= -0.21$, $p<0.05$). Correspondingly, we see that the most developed land types have the lowest values of NDVI, and that the least developed types have higher values of NDVI, though there is a wide range of variability and overlap between the land types. 
+
+%possible figure about distance to park? 
+\subsection{Observation discussion}
+
+These results suggest that greening strategies that enhance parks, street trees or vegetation, enacted both on large scales (1km) or small scales (<1km) have the potential to cool the city. 
+\subsection{Model}
 
 \subsection{Model evaluation: statistics}
-
 
 \subsection{Diurnal}
 We examine diurnal variability in temperature from X sites. Fig~\ref{fig:diurnal}a shows this for sites in five different land categories: developed high intensity, developed medium and low intensity, developed open space, rural forest, and urban forest. The coolest sites throughout the day are located in rural forests
@@ -315,7 +337,7 @@ UHI largest in morning, smallest at night.
 
 
 \subsection{Semivariance/spatial variability}
-Next, we examine spatial variability. We next examine how different locations vary from one aonther. Figure Xa shows a semi-variogram: the semi-variance (in units of variance or ∘C2∘C2 )is plotted against distance for all locations at 6am. For sites within one kilometer of one another, the semi-variance is less than 0.50.5, which translates to temperature differences of 0.7∘0.7∘C on average. As distance between sites increases, the semi-variance increases linearly, indicating that farther away points are more and more dissimilar. While the semi-variance is noisier at longer distances, this is due to having fewer datapoints at certain distances. This may be why the semi-variogram is exceeds its theoretical limit of the sample variance for some of the distances between 15-25 kilometers. Overall, we see that sites closer together are more similar and farther sites are more dissimilar.
+
 
 It is possible that variability in the land type drives temperature variability. In Figure Xb, we look at sites dominated by impervious landcover at 6am and see that the variogram follows a similar pattern to that of Fig.~Xa: closer sites are similar and farther sites are dissimilar. At distances beyond 15km, the semi-variances remain close to the variance of X. This is in contrast with the semi-variogram for green landcovers at 6am (Fig.Xc). Though overall green sites have lower variance, the semi-variance increases with distance without evidence of a limit.
 
