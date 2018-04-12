@@ -339,14 +339,19 @@ It may be possible that observations and the model have slightly altered diurnal
 Next, we compare time-averaged observations to simulations to assess how spatial variability in the model may contribute to error (Tab.~\ref{tab:space_error}). 
 %%note: contextualize these values. rmse = accuracy, pbias= spread/variance, mioa = ???
 %%
+
+Using summary statistics is one way to evaluate model performance. Having seen that these statistics suggest performance in line with that reported by the literature, we now turn to a detailed evaluation according to the important characteristics of Baltimore's urban heat island. In all cases, we compare 2-meter temperature.
+\subsubsection{Histogram}
+
+
 \subsubsection{Diurnal}
-Using summary statistics is one way to evaluate model performance. Having seen that these statistics suggest performance in line with that reported by the literature, we now turn to a detailed evaluation according to the important characteristics of Baltimore's urban heat island. In all cases, we compare 2-meter temperature. First, we examine the diurnal variability by land use in Fig.~\ref{fig:diurnal}c. At all sites, modeled temperature reaches its minimum at 6am and acheives maximum temperature around noon, cooling slightly until X pm,
+ First, we examine the diurnal variability by land use in Fig.~\ref{fig:diurnal}c. At all sites, modeled temperature reaches its minimum at 6am and acheives maximum temperature around noon, cooling slightly until X pm,
 % values here 
  at which point temperatures cool rapidly throughout the night. Temperature in high intensity land is X degrees 
  %fill in 
  warmer than other land types during the night, with  This contrasts with temperature observations in several ways: first, $T_{min}$ is too cold, second, $T_{max}$ is too early, and third, $T_{max}$ is too hot. That is, the model exaggerates the range of the diurnal cycle with respect to observations, and incorrectly reproduces the timing of the diurnal temperature cycle. Additionally, high intensity temperature differs too much from other land types at night, while other land types are too similar for all of the day except the afternoon through early evening. 
  
- This has implications for urban-rural temperature differences. The diurnal cycle of modeled $\Delta T$ is shown in Fig.~\ref{fig:diurnal} d, and reaches a maximum around 7pm and a minimum at 9am for high intensity land and 5am for other types of land. 
+ This has implications for urban-rural temperature differences. The diurnal cycle of modeled $\Delta T$ is shown in Fig.~\ref{fig:diurnal} d, and reaches a maximum around 7pm and a minimum at 9am for high intensity land and 5am for other types of land. $\Delta T$ for high intensity land remains greater than 1$^\circ$C throughout the day, whereas $\Delta T$ in medium/low intensity land and open space is negative in the early morning, eventually growing to X$^\circ C$ at 7pm. Their temperature maximum lags that of high intensity land by one hour. This is in sharp contrast to observations, which are warmer in the morning and grow cooler into the evening and night. Thus, the model incorrectly produces the magnitude and timing of the diurnal $\Delta T$ cycle. 
  
  % note: add temperature labels on top and bottom of plots
  
