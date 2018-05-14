@@ -232,6 +232,17 @@ UHI modeling studies demonstrate that numerical modeling is a salient method to 
 %This approach leaves open several questions about the urban heat island. It has been reported that the UHI varies as a function of .. (insert part from other paper here). However, it X still unclear. For example, (that Nature paper) did Y.  
 We do this by focusing on Baltimore, Md., a mid-size city on the East Coast of the United States (see Fig. \ref{fig:map}) that has been studied using observations \citep{Huang20111753,scott2017intraurban, scott2018reduced,brazel2000tale} and models \citep{zhang2011impact,li2013development,li2013synergistic,li2015contrasting}.  
 
+\begin{figure}[h]
+\centering
+% when using pdflatex, use pdf file:
+% \includegraphics[width=20pc]{figsamp.pdf}
+% when using dvips, use .eps file:
+% \includegraphics[width=20pc]{figsamp.eps}\
+\includegraphics[width = \textwidth]{../figures/figure01map.eps}
+\caption{a) model domains for the simulations and b) map of land type in Baltimore City (colors) and observation sites (triangles). In (b), each pixel represents one square kilometer.}
+\label{fig:map}
+ \end{figure}
+ 
 Baltimore is a heterogeneous city, with a small, central downtown core of buildings greater than three stories and  neighborhoods dominated by two-three story brick rowhomes. Outlying higher-elevation neighborhoods and suburbs are characterized by grass lawns, multi-level detached homes, and trees; tree canopy covered 28 percent of Baltimore in 2015 \cite{grove2011urban}. 
 % Several studies have examined Baltimore's UHI previously using observations \citep{Huang20111753,scott2017intraurban,brazel2000tale} and models \citep{zhang2011impact,li2013development,li2013synergistic,li2015contrasting}. 
 Observational studies demonstrate a pronounced urban heat island linked with population growth and urbanization: \cite{brazel2000tale} linked population growth with increasing urban rural temperature differences in Baltimore over decadal timescales and showed that higher land surface temperature was correlated with population density. 
@@ -282,7 +293,28 @@ By examining how features of the urban landscape, ranging from green infrastruct
 Temperature observations in this paper come from a network of iButton thermometer/hygrometers located throughout the Greater Baltimore area (Fig.~\ref{fig:map}b). 
 iButtons were installed in 91 sites beginning in May 2016, with the full network installed by July 1, 2016; at the end of the summer, 85 sensors remained. Thus, in this study we examine data taken between July 1, 2016 and August 30, 2016. Nearly all sites (79) were located within Baltimore City; the remaining 6 were north of the city in Baltimore County. During installation, local site data was taken on the surrounding site characteristics: 24 sensors were located in locations dominated by impervious surfaces, 43 were located in locations with grass and low vegetation, 13 sensors with bare or little ground-cover, and 5 sites with a mix of these characteristics. 
 
+ \begin{figure}
+\centering
+\includegraphics[width=20pc]{../figures/figure02.pdf}
+\caption{a) schematic of iButton and custom radiation shield, b) an urban observation site, and c) rural site 103.}
+\label{fig:ibutton}
+ \end{figure}
+
 Thermometers were housed in a custom shield in a custom, naturally aspirated radiation shield made of WhiteOptics White98 Reflector Film and attached to trees and poles as in Fig.~\ref{fig:ibutton}a using a plastic zip-tie. Out of the 85 sensors, 61 sensors were attached to trees, 17 sensors were attached to metal poles, and 7 were attached to wooden posts. Most of these were estimated to be located in partial shade (38) or full shade (24); the remainder were located in full sun (23). The implications of installation details for temperature monitoring are discussed more in \cite{scott2017intraurban}.
+
+\begin{table}
+\centering
+\begin{tabular}{l l l l c c}
+Landcover & Description &  Modis \# & $\epsilon$ & $\alpha$ & N  \\
+High Intensity & Developed, high intensity & 26& 0.88 &0.1 & 29 \\
+Medium and Low Intensity & Developed, & 25,24& 0.9, 0.88 & 0.1, 0.11& 24\\
+Open Space& Developed, open space &23 & 0.97 & 0.12 & 21\\
+Rural forest&Deciduous forest & 28& 0.93& 0.15& 3\\
+%Urban forest& Urban forest sites &NA & NA & NA & 16\\
+\end{tabular}
+\caption{Land types, corresponding 40 class MODIS number, their description, corresponding emissivity $\epsilon$ and albedo $\alpha$, and number of observation sites corresponding to the land type.}
+\label{tab:lcc}
+\end{table}
 
  To describe the land use type (hereafter, land type) of each observation site, we use the 40-class Moderate Resolution Imaging Spectrometer (MODIS) land type included in WRF to categorize sites. Our sites are located in developed high intensity, developed medium and developed low intensity, developed open space, and non-developped deciduous forest land.
  Table \ref{tab:lcc} shows each land type examined in this study and the corresponding MODIS classifications, which are the same with the exception that we combine the developed, medium intensity classification (MODIS category 25) with the developed, low intensity classification (MODIS category 24) to make a combined medium and low intensity category. Our local site data shows that all developed land types can include both impervious surfaces but also grassy areas. 
@@ -294,6 +326,12 @@ These site classifications correspond to a range of possible vegetative fraction
 \[NDVI = \frac{NIR-VIS}{NIR+VIS}\]
 at each observation site. The data is downloaded from Landsat-8 using the Google Earth Engine platform. We selected the least cloudy scene during the period June 1, 2016- August 15, 2016.  
 
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{../figures/ibuttonbias.eps}
+\caption{A comparison of iButton (blue solid line) and ASOS (grey dashed line) temperature observations: a) distribution of temperatures for all hours,  6am, and 4pm, b) differences between iButton and ASOS instruments for each category, and c) average summertime temperature by hour. In a and b), the solid black line indicates the mean, the box surrounds the first through third quartiles, and whiskers delineate the wide interquartile range, 1.5 times the first through third quartiles. Data points falling outside this range are marked as 'x'. }
+\label{fig:bias}
+\end{figure}
 
 iButtons have been evaluated in the literature and have been reported to agree well particularly for nighttime temperatures, but exhibit a warm bias \citep{scott2017temperature,terando2017ad}. Thus, we co-locate one of the iButtons with an Automated Surface Observation System (ASOS) station in downtown Baltimore (station DMH, downloaded from http://www.nws.noaa.gov/asos/). This station provides sub-hourly measurements with reported accuracies of $< 0.5^\circ $C. In Fig.~\ref{fig:bias}, we compare the ASOS measurements with the iButton measurement. We find that the measurements agree well--the mean difference (iButtons-ASOS) is $0.44^\circ$C, the distributions of summertime temperatures for all hours (Fig.~\ref{fig:bias}a) is similar, and the correlation for the two instruments is $r = 0.96$. 
 
@@ -323,7 +361,8 @@ We run the WRF module for 4 months over three nested domains, each with 40 verti
 As our analysis focuses on Baltimore, this paper uses the model output from a 40 square kilometer (km) domain around Baltimore.
 % Note: fill in here!!!! 
 
-In order to simulate urban areas, we make use of the integrated WRF urban modeling system \citep{chen2011integrated}, which couples an urban canopy model (UCM) with the Noah land surface model to compute the surface fluxes. In our study, the Building Energy Model and Building Energy Paramaterization described in \cite{chen2011integrated} are turned off. At each urban grid cell, the model computes fluxes from anthropogenic surfaces, which are combined from fluxes from natural surfaces by the land surface model. 
+To simulate urban areas, we make use of the integrated WRF urban modeling system \citep{chen2011integrated}, which couples an urban canopy model (UCM) with the Noah land surface model to compute the surface fluxes. In our study, the Building Energy Model and Building Energy Paramaterization described in \cite{chen2011integrated} are turned off. 
+At each urban grid cell, the model computes fluxes from anthropogenic surfaces, which are combined from fluxes from natural surfaces by the land surface model. 
 For example, total sensible heat for a given grid cell is calculated as \[ H = F_{veg} \times H_{veg} + F_{urban}\times H_{urban}\]
 where $F_{veg}$ is the fractional coverage of natural surfaces, $H_{veg}$ is the sensible heat flux over natural surfaces, $F_{urban}$ is the fractional coverage of urban anthropogenic surfaces, which includes roads, buildings, and roofs, and $H_{urban}$ is the sensible heat flux emanating from these anthropogenic surfaces. Similarly, latent heat is a function of both anthropogenic and natural surfaces' contributions to latent heating: 
 \[LH = F_{veg} \times LH_{veg} + F_{urban}\times LH_{urban}\]
@@ -360,6 +399,7 @@ where the net radiation flux is the sum of the net radiative fluxes $$r_{net}=LW
 
 We compare the simulated 2-meter temperature against the temperature observation in the nearest grid cell, matched using the \texttt{ll\_ to\_xy} function in the Python WRF library. 
 From the 83 unique observation sites, we have 43 unique model grid cells. This means the remaining 40 sites are located in the same model grid cell as another site; on average, 4 sites are located in a single grid cell with multiple observation sites (a median of 3 sites, with a standard deviation of 2.3 sites per grid cell). The most number of sites from a single model grid cell is 9. In these cases, we compare both observations to the model grid cell, effectively oversampling those cells. 
+We reproduce model results for all grid cells in the 40km$^2$ domain around Baltimore in the Supplmental Material. 
 In all cases, we compare data taken or simulated between the periods of July 1, 2016 and August 30, 2016 and report our results in local time (GMT-4). 
 
 \subsection{Evaluation Metrics}
@@ -406,6 +446,14 @@ The code is available at :  github.com/gottscott/xx
 \section{Results}\label{sec:results} 
 \subsection{Observations}
 \subsubsection{Statistical distribution}
+
+\begin{figure}
+\centering
+\includegraphics[width=40pc]{../figures/landcover_distribution.eps}
+\caption{Distribution of 2-meter temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), and 4pm (bottom row) by land type. }
+\label{fig:hist}
+\end{figure}
+
 Temperature in July through August 2016 ranged from 13.7-48.0$^\circ$C, with an average temperature of 26.9$^\circ$C. The coolest temperatures occured at 6am temperatures (on average, 23.6$^\circ$C) and the warmest temperatures occurred at 4pm (on average,  30$^\circ$C). 
 Temperatures vary day to day and week to week: mean daily temperatures has a range of approximately $10^\circ$C for the study period, with average daily temperatures (spatially-averaged) varying between $21.1^\circ$C and $31.4^\circ$. The standard deviation of mean daily temperature is $2.2^\circ$C, showing that temperature varies by several degrees day to day. 
 Temperature also varies across the city, with a range in time-averaged temperature across all sites of 5.5$^\circ$C and an overall standard deviation of 1.2$^\circ$C. Fig.~\ref{fig:hist}a shows the statistical distribution of time-averaged temperature for all hours at each site grouped by land type. 
@@ -418,6 +466,12 @@ though there is significant overlap amongst the land types.
 % Note: add urban forest or urban green category here? 
 
 \subsubsection{Spatial auto-correlation}
+\begin{figure}
+\centering
+\includegraphics[width = .75\textwidth]{../figures/semivariogram.eps}
+\caption{Semi-variograms showing distance versus the semi-variance (Eq.~\ref{eq:semivariance}) for observed temperature (top row) and modelled temperature (bottom row) at 6am (left column) and 4pm (right column). Dashed line indicates the sample variance. 
+}\label{fig:semiv_obs}
+\end{figure}
 %Having seen how time-averaged temperature varies by land type, 
 We next examine how different locations vary from one another by looking at the spatial auto-correlation, which measures the statistical similarity between two nearby points. Figure~\ref{fig:semiv_obs} shows a semi-variogram: the semi-variance (in units $^\circ$C$^2$) is plotted against distance for all locations at 6am. For sites within one kilometer of one another, the semi-variance is less than $0.5^\circ$C$^2$, indicating that nearby sites are highly spatially auto-correlated and thus similar to one another. 
 As distance between sites increases, the semi-variance increases linearly, indicating that farther away points are more and more dissimilar. While the semi-variance is noisier at longer distances, this is due to having fewer datapoints at these distances. 
@@ -432,6 +486,14 @@ For both times, we see that sites closer together are more auto-correlated, that
 
 
 \subsubsection{Vegetation}
+
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{../figures/vegetation_fraction.eps}
+\caption{Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
+\label{fig:veg}
+\end{figure}
+
 We now turn to the cause of spatial variability in temperature. We have shown how temperature varies by land type; as one differing factor between land types is the presence of vegetation, we next quantify the relationship between temperature and green infrastructure in Baltimore. 
 %Green infrastructure is one commonly cited means to combat urban heating (cite EPA toolkit), so we next evaluate the connection between temperature and green infrastructure in Baltimore. 
 %There are many types of green infrastructure, in Baltimore, parks, fields, and forested areas are common. We find that 
@@ -440,7 +502,14 @@ We now turn to the cause of spatial variability in temperature. We have shown ho
 Because there is no common index for indicating the presence of green infrastructure directly, we first turn to satellite-measured NDVI, a proxy for photosynthetic activity that can indicate the presence of vegetation and is a continuous variable. 
 In Fig.~\ref{fig:veg} we examine the relationship between NDVI and time-averaged temperature from data taken from all hours, from 6am data, and from 4pm data. We first see that the most developed land types have the lowest values of NDVI, and that the least developed types have higher values of NDVI, though there is a wide range of variability and overlap between the land types. For each time examined, there is a negative relationship between NDVI and temperature, indicating that vegetation (as observed from above by satellite) is related to cooler temperatures and  that variability in NDVI is an important factor in determining spatial variability of air temperature. We also see that the relationship is different at different hours in that the correlation between temperature and NDVI is strongest at 6am ($r = -0.68$, $p< 0.05$) and weakest at 4pm ($r= -0.21$, $p<0.05$). 
 
-It is possible that elevation is a cofounding factor in temperatures. The most developed parts of Baltimore are located near the harbor at low elevation, while less developed sites with more vegetation are located at higher elevations. The elevation of our study sites ranges from 0 to 195 meters, with a median elevation of 35 meters and a mean elevation of 50 meters, indicating that the distribution is right-skewed and that most sites have relatively low elevations. Both morning and afternoon temperatures are negatively correlated with elevation: the correlation of 6am temperatures $T_{6am}$ with elevation is $-0.67$, and the correlation of 4pm temperatures $T_{4pm}$ with elevation is $-0.45$. To separate the influences of these factors on temperature, we perform a multiple linear regression. The results show that 
+\begin{figure}
+\centering
+\includegraphics[width = \textwidth]{../figures/veg_elevation_corrected.eps}
+\caption{Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
+\label{fig:veg_elev_corrected}
+\end{figure}
+
+It is possible that elevation variability affects the observed  temperature-vegetation relationship. The most developed parts of Baltimore are located near the harbor at low elevation, while less developed sites with more vegetation are located at higher elevations. The elevation of our study sites ranges from 0 to 195 meters, with a median elevation of 35 meters and a mean elevation of 50 meters, indicating that the distribution is right-skewed and that most sites have relatively low elevations. Both morning and afternoon temperatures are negatively correlated with elevation: the correlation of 6am temperatures $T_{6am}$ with elevation is $-0.67$, and the correlation of 4pm temperatures $T_{4pm}$ with elevation is $-0.45$. To separate the influences of these factors on temperature, we perform a multiple linear regression. The results show that 
 \[ T_{6am} = -0.015\cdot \text{elevation} -2.91 \cdot \text{NDVI} + 24.68\] 
 \[ T_{4pm} = -0.017\cdot \text{elevation} +0.195 \cdot \text{NDVI} + 32.4\]
 where elevation is in meters and NDVI is unit-less. 
@@ -449,8 +518,15 @@ These coefficients are similar in magnitude and suggests that at high elevations
  For example, at the highest elevation site, 195 meters, NDVI is $0.5$, meaning that cooling due to elevation is $2.9^\circ$C while cooling from NDVI is estimated at $1.5^\circ$C. Thus, at this site, elevation causes more cooling than does vegetation. 
  Similarly, at low elevations the reverse is true: at the lowest elevation site, located at sea level, NDVI is $0.3$, meaning that elevation cooling is null whereas the NDVI cooling is  $0.9^\circ$C. 
 To systematically compare these effects, 
-we compute elevation-corrected temperatures, $T_{6am} + 0.015\cdot \text{elevation}$ and $T_{4pm} + 0.017\cdot \text{elevation}$, and compare these to NDVI in Fig.\ref{fig:veg_elev_corrected}. We see that while $T_{6am}$ is negatively correlated with NDVI ($r=-0.61$, $p<0.05$), the correlation between NDVI and $T_{4pm}$ is no longer significant ($r=-0.04$, $p=0.7$). 
+we compute elevation-corrected temperatures, $T_{6am} + 0.015\cdot \text{elevation}$ and $T_{4pm} + 0.017\cdot \text{elevation}$, and compare these to NDVI in Fig.~\ref{fig:veg_elev_corrected}. We see that while $T_{6am}$ is negatively correlated with NDVI ($r=-0.61$, $p<0.05$), the correlation between NDVI and $T_{4pm}$ is no longer significant ($r=-0.04$, $p=0.7$). 
 Thus, we conclude that higher levels of vegetation are linked with lower 6am temperatures in Baltimore, but not for 4pm temperatures. This suggests that satellite vegetation is linked with cooling of $2.9 - 0.015\cdot \text{elevation} ^\circ$C/$\text{NDVI}$ at 6am. As NDVI has a maximum of $0.6$ in our study, this means that the maximum theoretical cooling at 6am from vegetation is $1.74^\circ$C. 
+
+\begin{figure}
+\centering
+\includegraphics[width=40pc]{../figures/diurnal_sub1km.eps}
+\caption{Diurnal variability for sub-kilometer scale vegetation types: (a) street trees in sites dominated by impervious landcover, (b) urban parks with trees, (c) open fields in urban parks, and (c) urban forests. }
+\label{fig:diurnal_urbanforests_etc}
+\end{figure}
 
 Our land use categorizes sites based on satellite data at a scale of 1km.  Sub-kilometer spatial variability is exists as green infrastructure in the form of the presence or absence of local vegetation, including street trees, small parks, and low vegetation (grass, bushes, or other low plants). As large-scale vegetation affects temperature, it is plausible that smaller-scale vegetation does as well. 
 Thus, we now turn to local site vegetation whose variability is too small to be captured by satellite sensors. 
@@ -465,11 +541,19 @@ Finally, we examine sites within the canopy of urban forests (Fig.~\ref{fig:diur
 We find that these are coolest during the day for all land types, though at night show little difference from sites with less vegetation (namely, sites with street trees or in parks with trees) and are in fact warmer than open fields in parks. 
 Thus, in addition to land use, vegetation variability at sub-kilometer variability affects temperature, and the cooling intensity and timing linked with green infrastructure differs by green infrastructure type. 
 
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{../figures/distance_to_park.eps}
+\caption{Distance to park versus time-averaged (a) $T_{6am}$ and (b) $T_{4pm}$. Each dot represents one site.}
+\label{fig:park_distance}
+\end{figure}
+
 In Fig.~\ref{fig:semiv_obs}, we saw that urban temperature is spatially auto-correlated at both night and day, and that vegetation is linked to cooler temperatures at several scales. One question relevant to decision makers is how far the cooling benefit of parks and trees persists. That is, if two sites are close by, and one site is a site with green infrastructure causing a lower temperature, how far does that cooling benefit extend? 
-We address this question in Fig.~\ref{fig:distance to park}, which shows the distance from the nearest park to each site versus its mean temperature for $T_{6am}$ and $T_{4pm}$ for sites within 500 meters of a park. We see that while $T_{6am}$ is positively correlated with park distance ($r=0.5$, $p< 0.05$), $T_{4pm}$ shows no significant relationship ($p>0.05$).  We quantify the cooling by distance using a linear regression and find that cooling benefits decay outside of parks by 0.004$^\circ C$/meter. 
-Correcting for elevation does not significantly change this finding; no significant relationship is found between elevation corrected $T_{4pm}$ and park distance, and elevation corrected $T_{6am}$ increases outside of parks by 0.003$^\circ C$/meter.  This suggests that parks can offer cooling nighttime cooling benefits to surrounding neighborhoods, but that any daytime cooling benefits are unclear beyond park boundaries. 
+We address this question in Fig.~\ref{fig:park_distance}, which shows the distance from the nearest park to each site versus its mean temperature for $T_{6am}$ and $T_{4pm}$ for sites within 500 meters of a park. We see that while $T_{6am}$ is positively correlated with park distance ($r=0.52$, $p< 0.05$), $T_{4pm}$ shows no significant relationship ($p>0.05$).  We quantify the cooling by distance using a linear regression and find that cooling benefits decay outside of parks by 0.004$^\circ C$/meter. 
+Correcting for elevation does not significantly change this finding; no significant relationship is found between elevation corrected $T_{4pm}$ and park distance, and elevation corrected $T_{6am}$ increases outside of parks by 0.004$^\circ C$/meter.  This suggests that parks can offer cooling nighttime cooling benefits to surrounding neighborhoods, but that any daytime cooling benefits are unclear beyond park boundaries. 
 
 \subsubsection{Urban heat island intensity}
+
 We previously saw in Fig.~\ref{fig:hist} how high intensity land is the hottest land type at both 6am and 4pm.  In Fig.~\ref{fig:diurnal}a, showing hourly temperature averaged across sites in each different land type, we see that this is true for all hours. That is, high intensity land is the warmest land type at every hour. Furthermore, the coolest sites throughout the day are located in rural forests. 
 Medium and low intensity land types are next hot, remaining within 1$^\circ$C of high intensity land types throughout the day. Open space is next coolest, with a minimum temperature of $22.5^\circ$C and a maximum temperature of $28.9^\circ$C. 
 Though open spaces are cooler than high intensity land, these sites have a diurnal range of $6.4^\circ$C, similar to that of high intensity land types ($6.9^\circ$C), indicating its ability to both warm up during the day and cool off at night. 
@@ -477,6 +561,21 @@ Though open spaces are cooler than high intensity land, these sites have a diurn
 The temperature differences between sites give rise to a temperature difference, $\Delta T$, between urban, developed sites and the rural sites. We first compute the difference between the mean of each land type and the mean of the rural sites. 
 In all land types, this temperature difference is largest in the early morning hours, with a maximum at 9am, and diminishes throughout the day, attaining a minimum at 8pm. The average $\Delta T$ ranges from $1.8^\circ$C to $3.4^\circ$C
 and is highest for high intensity land throughout the day. Open space and rural forests have the lowest temperature difference with respect to rural observations. Open space $\Delta T$ remains fairly constant throughout the day, with a slight increase at 6am and subsequent decrease at 9am, indicating an offset in diurnal temperature cycle timing compared to rural forests. It is possible this is attributable to faster heating in open areas due to more open geometry and less shading. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/diurnal.eps}
+\caption{Average temperature (top row) and temperature difference (bottom row) by hour for observations (left column) and model (right column) for each landcover type. N indicates the number of model grid points included in each land type. }
+\label{fig:diurnal}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{../figures/DT_sensitivity.eps}
+\caption{Top row: average temperature difference between the average of sites in each urban land type and various rural sites for observations (top row): a) BWI airport , b) site X, c) site Y  d) site Z. Bottom row: same as above but for model. N indicates the number of model grid points included in each land type.
+}
+\label{fig:dt_sensitivity}
+\end{figure}
 
 Rural areas are not monolithic, so we test the sensitivity of $\Delta T$ to rural station selection  (Fig.~\ref{fig:dt_sensitivity}) by varying rural sites.
 %The temperature differences between sites give rise to a temperature difference, $\Delta T$, between urban, developed sites and the rural sites (Fig.~\ref{fig:dt_sensitivity}).
@@ -489,16 +588,16 @@ Temperature differences with respect to rural forests are negative throughout th
 \begin{table}
 \begin{tabular}{lrrrllll}
 \toprule
-Site &   Elevation &      NDVI &         VF & sunorshade & attachment & landcoverclass &                                      notes \\
+Site &   Elevation &      NDVI &         VF &  Sun or shade & Attachment & Landcover &  Notes \\
 \midrule
-68  &  195.133606 &  0.527851 &  81.528183 &      shade &       tree &          grass &                               nothingtoadd \\
+68  &  195.133606 &  0.527851 &  81.528183 &      shade &       tree &          grass &                               Darryn's house \\
 75  &  176.847046 &  0.457631 &  74.932465 &      shade &       tree &           dirt &                                Ben's house \\
 103 &   86.993736 &  0.524227 &  66.301079 &    partial &       tree &          grass &          Meadowood park behind rain garden \\
 130 &   84.259598 &  0.450265 &  79.935478 &    partial &       tree &          grass &  Cherry tree in middle of grounds entrance \\
 \bottomrule
 \end{tabular}
 
-\caption{Rural sites.}
+\caption{Rural site characteristics.}
 \label{tab:rural_ibuttons}
 \end{table}
 
@@ -570,6 +669,47 @@ Our results confirm the findings in \cite{scott2017intraurban} and demonstrate t
 %In all cases, we compare 2-meter temperature observations with those calculated by the model. 
 
 \subsubsection{Evaluation Statistics}
+
+\begin{table}
+\centering
+%Time error: 
+\begin{tabular}{lrrrrr}
+%\toprule
+{} &  all data &     6am &   16pm &   min &  max \\
+%\midrule
+rmse        &      4.60 &  4.15 & 6.04 &  3.94 & 2.87 \\
+correlation &      0.89 &  0.84 & 0.76 &  0.82 & 0.90 \\
+p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
+pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
+mioa        &      0.93 &  0.83 & 0.85 &  0.82 & 0.92 \\
+r\_squared   &      0.80 &  0.71 & 0.58 &  0.67 & 0.81 \\
+%\bottomrule
+\end{tabular}
+\caption{Model error due to temporal variability: evaluation of model against observations for time-mean temperatures for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
+\label{tab:time_error}
+\end{table}
+
+\begin{table}
+\centering
+%Space error: 
+\begin{tabular}{lrrrrr}
+%\toprule
+{} &  all data &     6am &   16pm &   min &  max \\
+%\midrule
+rmse        &      0.93 &  3.32 & 3.70 &  2.74 & 6.09 \\
+correlation &      0.64 &  0.52 & 0.46 &  0.54 & 0.40 \\
+p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
+pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
+mioa        &      0.69 &  0.55 & 0.45 &  0.57 & 0.42 \\
+r\_squared   &      0.41 &  0.27 & 0.21 &  0.29 & 0.16 \\
+%\bottomrule
+\end{tabular}
+
+
+\caption{Model error due to spatial variability: evaluation of model against observations for temperatures averaged over space at each hour for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
+\label{tab:space_error}
+\end{table}
+
 We evaluate the WRF numerical simulations with respect to 2-meter atmospheric temperature. In order to assess how well the model reproduces the day-to-day temporal variability, we first compare spatially-averaged temperature observations to spatially-averaged modeled temperature. 
 Table~\ref{tab:time_error} reports these results for several statistics for data from all hours, 6am, 4pm, $T_{min}$, and $T_{max}$.  
 These statistics suggest that the temporal error in our simulations, that is, error caused by temporal variability in synoptic weather patterns, is somewhat high---for data from all hours, the RMSE (4.6) is slightly outside of the upper range of $4^\circ$C reported by the literature \citep{kim2013evaluation}. 
@@ -650,12 +790,28 @@ This shows that while the model produces a UHI at certain times of the day in ce
 Furthermore, the model incorrectly produces the magnitude and timing of the diurnal $\Delta T$ cycle at the rural sites which are not located under a forest canopy.  % which may have implications on using the model to understand green infrastructure
 %Having seen how sensitive observed $\Delta T$ is to the rural reference site, we now test how sensitive modeled $\Delta T$ is to rural site selection by comparing the model's urban temperature to temperature in the closest grid point to the BWI station (Fig.~\ref{fig:hist}f).Qualitatively, we see that high intensity land exhibits a similar diurnal curve to that in Fig.~\ref{fig:hist}d, with higher values at night and lower values during the day. The timing of this cycle is shifted and the values are lower, with the minimum $\Delta T$ of $0.1^\circ$C occuring at noon and the maximum of $2.1^\circ$C occurring at 10pm. The less developed land types show little significant difference throughout the day. This demonstrates that modelled $\Delta T$ is less sensitive to rural site selection in high intensity land. 
 
-As the previous analysis uses only a single grid point, it leaves open the possibility that model point selection may influence our results. Thus, we repeat our analysis using all points in a 40 square kilometer domain around Baltimore. In Fig.~\ref{fig:diurnal_wd}a, we show temperature variability by hour for each of the 13 land types present in this domain. We see that developed land is hotter for most of the day, with the exception of water at night and wetlands during the early morning. The spread between 
+As the previous analysis uses only a single grid cell, it leaves open the possibility that model point selection may influence our results. Thus, we repeat our analysis using all points in a 40 square kilometer domain around Baltimore. In Fig.~\ref{fig:diurnal_wd}a, we show temperature variability by hour for each of the 13 land types present in this domain. We see that developed land is hotter for most of the day, with the exception of water at night and wetlands during the early morning. The spread between 
 In Fig.~\ref{fig:diurnal_wd}b, we compare these diurnal cycles to the average diurnal cycle in a deciduous forest, representing 179 model points. With the exception of water at night and wetlands during the mid-morning, high intensity land types have the highest values of $\Delta T$ at all hours of the day. Similar to Fig.~\ref{fig:diurnal}, $\Delta T$ in high intensity land is around 2$^\circ$C at night, growing smaller until 9am, and then increasing throughout the day until 7pm. Medium and low intensity and open space show low $\Delta T$ at night, increasing at 6am throughout the day until 7pm, and then decreasing sharply thereafter. Again, this diurnal pattern is similar to that seen in Fig.~\ref{fig:diurnal} for each land type, demonstrating that modeled $\Delta T$ is less sensitive to rural site selection than observed $\Delta T$. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/whole_domain/diurnal_model.eps}
+\caption{As in Fig. \ref{fig:diurnal}c,d but for the whole model domain.}% (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
+\label{fig:diurnal_wd}
+\end{figure}
+
  
  % note: add temperature labels on top and bottom of plots
 \subsubsection{Surface energy budget}
 % 4. The longterm flux balance should be $r_{net}=LW_{down}-LW_{up}+SW_{down}-SW_{up}=LH+HFLX-GRD$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=40pc]{../figures/SEB.eps}
+\caption{Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up). Error bars represent spatial variability for time-mean hourly values.}
+\label{fig:seb}
+\end{figure}
+
 We have seen that temperature varies throughout the urban heat island, and these differences are linked to surface features such as land type and vegetation in both the model and observations. 
 In order to understand what causes the differences in temperature between each land type, we examine the surface energy budget in each land type. 
  In Fig.~\ref{fig:seb}a, we show the diurnal cycle of the net surface energy flux $F$ averaged over the summertime for each land type. The net energy flux is highest in high intensity land throughout the day and lowest in rural forests; net energy flux for other land categories is almost the same. More energy results in warming, so a higher energy flux for more developed land types is consistent with warmer developed land and a pronounced UHI. 
@@ -798,38 +954,38 @@ Thus, care must be taken when using urban heat island models to understand proce
 %----------------
 % EXAMPLE FIGURE
 %
-\begin{figure}[h]
-\centering
-% when using pdflatex, use pdf file:
-% \includegraphics[width=20pc]{figsamp.pdf}
-% when using dvips, use .eps file:
-% \includegraphics[width=20pc]{figsamp.eps}\
-\includegraphics[width=20pc]{../figures/figure01map.png}
-\caption{a) model domains for the simulations and b) map of land type in Baltimore City (colors) and observation sites (triangles). In (b), each pixel represents one square kilometer.}
-\label{fig:map}
- \end{figure}
+%\begin{figure}[h]
+%\centering
+%% when using pdflatex, use pdf file:
+%% \includegraphics[width=20pc]{figsamp.pdf}
+%% when using dvips, use .eps file:
+%% \includegraphics[width=20pc]{figsamp.eps}\
+%\includegraphics[width=20pc]{../figures/figure01map.png}
+%\caption{a) model domains for the simulations and b) map of land type in Baltimore City (colors) and observation sites (triangles). In (b), each pixel represents one square kilometer.}
+%\label{fig:map}
+% \end{figure}
  
- \begin{figure}[h]
-\centering
-\caption{a) schematic of iButton and custom radiation shield and b) picture of an observation site in Baltimore.}
-\label{fig:ibutton}
- \end{figure}
+% \begin{figure}[h]
+%\centering
+%\caption{a) schematic of iButton and custom radiation shield and b) picture of an observation site in Baltimore.}
+%\label{fig:ibutton}
+% \end{figure}
  
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/ibuttonbias.eps}
-\caption{A comparison of iButton (blue solid line) and ASOS (grey dashed line) temperature observations: a) distribution of temperatures for all hours,  6am, and 4pm, b) differences between iButton and ASOS instruments for each category, and c) average summertime temperature by hour. In a and b), the solid black line indicates the mean, the box surrounds the first through third quartiles, and whiskers delineate the wide interquartile range, 1.5 times the first through third quartiles. Data points falling outside this range are marked as x. }
-\label{fig:bias}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/ibuttonbias.eps}
+%\caption{A comparison of iButton (blue solid line) and ASOS (grey dashed line) temperature observations: a) distribution of temperatures for all hours,  6am, and 4pm, b) differences between iButton and ASOS instruments for each category, and c) average summertime temperature by hour. In a and b), the solid black line indicates the mean, the box surrounds the first through third quartiles, and whiskers delineate the wide interquartile range, 1.5 times the first through third quartiles. Data points falling outside this range are marked as x. }
+%\label{fig:bias}
+%\end{figure}
 
 
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/landcover_distribution.eps}
-\caption{Distribution of 2-meter temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), and 4pm (bottom row) by land type. }
-\label{fig:hist}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/landcover_distribution.eps}
+%\caption{Distribution of 2-meter temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), and 4pm (bottom row) by land type. }
+%\label{fig:hist}
+%\end{figure}
 
 %\begin{figure}[h]
 %\centering
@@ -838,27 +994,27 @@ Thus, care must be taken when using urban heat island models to understand proce
 %}\label{fig:semiv_obs}
 %\end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/semivariogram.eps}
-\caption{Semi-variograms showing distance versus the semi-variance (Eq.~\ref{eq:semivariance}) for observed temperature (top row) and modelled temperature (bottom row) at 6am (left column) and 4pm (right column). Dashed line indicates the sample variance. 
-}\label{fig:semiv_obs}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/semivariogram.eps}
+%\caption{Semi-variograms showing distance versus the semi-variance (Eq.~\ref{eq:semivariance}) for observed temperature (top row) and modelled temperature (bottom row) at 6am (left column) and 4pm (right column). Dashed line indicates the sample variance. 
+%}\label{fig:semiv_obs}
+%\end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/diurnal.eps}
-\caption{Average temperature (top row) and temperature difference (bottom row) by hour for observations (left column) and model (right column) for each landcover type. N indicates the number of model grid points included in each land type. }
-\label{fig:diurnal}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/DT_sensitivity.eps}
-\caption{Top row: average temperature difference between the average of sites in each urban land type and various rural sites for observations (top row): a) BWI airport , b) site X, c) site Y  d) site Z. Bottom row: same as above but for model. N indicates the number of model grid points included in each land type.
-}
-\label{fig:dt_sensitivity}
-\end{figure}f
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/diurnal.eps}
+%\caption{Average temperature (top row) and temperature difference (bottom row) by hour for observations (left column) and model (right column) for each landcover type. N indicates the number of model grid points included in each land type. }
+%\label{fig:diurnal}
+%\end{figure}
+%
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/DT_sensitivity.eps}
+%\caption{Top row: average temperature difference between the average of sites in each urban land type and various rural sites for observations (top row): a) BWI airport , b) site X, c) site Y  d) site Z. Bottom row: same as above but for model. N indicates the number of model grid points included in each land type.
+%}
+%\label{fig:dt_sensitivity}
+%\end{figure}
 
 %\begin{figure}[h]
 %\centering
@@ -867,77 +1023,70 @@ Thus, care must be taken when using urban heat island models to understand proce
 %\label{fig:semiv_model}
 %\end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/vegetation_fraction.eps}
-\caption{Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
-\label{fig:veg}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/vegetation_fraction.eps}
+%\caption{Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
+%\label{fig:veg}
+%\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=40pc]{../figures/diurnal_sub1km.eps}
-\caption{Diurnal variability for sub-kilometer scale vegetation types: (a) street trees in sites dominated by impervious landcover, (b) urban parks with trees, (c) open fields in urban parks, and (c) urban forests. }
-\label{fig:diurnal_urbanforests_etc}
-\end{figure}
+%\begin{figure}
+%\centering
+%\includegraphics[width=40pc]{../figures/diurnal_sub1km.eps}
+%\caption{Diurnal variability for sub-kilometer scale vegetation types: (a) street trees in sites dominated by impervious landcover, (b) urban parks with trees, (c) open fields in urban parks, and (c) urban forests. }
+%\label{fig:diurnal_urbanforests_etc}
+%\end{figure}
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=40pc]{../figures/distancetopark.png}
+%\caption{Distance to park versus (a) $T_{min}$ and (b) $T_{max}$.}
+%\label{fig:distance to park}
+%\end{figure}
 
-\begin{figure}
-\centering
-\includegraphics[width=40pc]{../figures/distancetopark.png}
-\caption{Distance to park versus (a) $T_{min}$ and (b) $T_{max}$.}
-\label{fig:distance to park}
-\end{figure}
 
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/SEB.eps}
-\caption{Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up). Error bars represent spatial variability for time-mean hourly values.}
-\label{fig:seb}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/SEB.eps}
+%\caption{Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up). Error bars represent spatial variability for time-mean hourly values.}
+%\label{fig:seb}
+%\end{figure}
 %%%%%% extra figures
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=40pc]{../figures/whole_domain/diurnal_model.eps}
-\caption{As in Fig. X but for the whole model domain. (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
+\caption{As in Fig.~\ref{fig:diurnal} but for the whole model domain. (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
 \label{fig:diurnal_wd}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=40pc]{../figures/whole_domain/landcover_distribution.eps}
-\caption{As in Fig. X but for the whole model domain: Distribution of 2-meter temperature for (a) all hours, (b) 6am (middle row), (c) and 4pm by land type. }
+\caption{As in Fig.~\ref{fig:hist}  but for the whole model domain: Distribution of 2-meter temperature for (a) all hours, (b) 6am (middle row), (c) and 4pm by land type. }
 \label{fig:hist_wd}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=40pc]{../figures/whole_domain/spatialvariability_model.eps}
-\caption{As in Fig. X but for the whole model domain: semivariogram as in Fig.~\ref{fig:semiv_obs} but with model temperature.}
+\caption{As in Fig.~\ref{fig:semiv_obs} but for the whole model domain: semivariogram as in Fig.~\ref{fig:semiv_obs} but with model temperature.}
 \label{fig:semiv_model_wd}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=40pc]{../figures/whole_domain/landcover_model.eps}
-\caption{As in Fig. X but for the whole model domain:  Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
+\caption{As in Fig.~\ref{fig:veg} but for the whole model domain:  Surface vegetation versus temperature for observations (left column) and model (right column) for all hours (top row), 6am (middle row), 4pm (top row): in a,c, and e, satellite NDVI versus mean observed temperature at each site, and b,d, and f, 0.01 times model vegetative fraction. The correlation $r$ and correlation p-value $p$ are labeled. Colors indicate each land type. N indicates the number of model grid points included in each land type.}
 \label{fig:veg_wd}
 \end{figure}
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/whole_domain/SEB.eps}
-\caption{As in Fig. X but for the whole model domain. Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up).}
-\label{fig:seb_wd}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/whole_domain/SEB_all_landtypes.eps}
-\caption{As in Fig. X but for the whole model domain and all land types. Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up).}
-\label{fig:seb_wd}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/whole_domain/SEB_all_landtypes.eps}
+%\caption{As in Fig. X but for the whole model domain and all land types. Average hourly surface energy flux by land type: a) net radiation, b) sensible heat, c) latent heat, and d) net radiation (down minus up).}
+%\label{fig:seb_wd}
+%\end{figure}
 
 % ---------------
 % EXAMPLE TABLE
@@ -961,62 +1110,62 @@ Thus, care must be taken when using urban heat island models to understand proce
 % \multicolumn{2}{l}{$^{a}$Footnote text here.}
 % \end{tabular}
 % \end{table}
-\begin{table}
-\centering
-\begin{tabular}{l l l l c c}
-Landcover & Description &  Modis \# & $\epsilon$ & $\alpha$ & N  \\
-High Intensity & Developed, high intensity & 26& 0.88 &0.1 & 29 \\
-Medium and Low Intensity & Developed, & 25,24& 0.9, 0.88 & 0.1, 0.11& 24\\
-Open Space& Developed, open space &23 & 0.97 & 0.12 & 21\\
-Rural forest&Deciduous forest & 28& 0.93& 0.15& 3\\
-Urban forest& Urban forest sites &NA & NA & NA & 16\\
-\end{tabular}
-\caption{Land types, corresponding 40 class MODIS number, their description, corresponding emissivity $\epsilon$ and albedo $\alpha$, and number of observation sites corresponding to the land type.}
-\label{tab:lcc}
-\end{table}
 
 
-\begin{table}
-\centering
-%Time error: 
-\begin{tabular}{lrrrrr}
-%\toprule
-{} &  all data &     6am &   16pm &   min &  max \\
-%\midrule
-rmse        &      4.60 &  4.15 & 6.04 &  3.94 & 2.87 \\
-correlation &      0.89 &  0.84 & 0.76 &  0.82 & 0.90 \\
-p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
-pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
-mioa        &      0.93 &  0.83 & 0.85 &  0.82 & 0.92 \\
-r\_squared   &      0.80 &  0.71 & 0.58 &  0.67 & 0.81 \\
-%\bottomrule
-\end{tabular}
+%\begin{table}
+%\centering
+%\begin{tabular}{l l l l c c}
+%Landcover & Description &  Modis \# & $\epsilon$ & $\alpha$ & N  \\
+%High Intensity & Developed, high intensity & 26& 0.88 &0.1 & 29 \\
+%Medium and Low Intensity & Developed, & 25,24& 0.9, 0.88 & 0.1, 0.11& 24\\
+%Open Space& Developed, open space &23 & 0.97 & 0.12 & 21\\
+%Rural forest&Deciduous forest & 28& 0.93& 0.15& 3\\
+%Urban forest& Urban forest sites &NA & NA & NA & 16\\
+%\end{tabular}
+%\caption{Land types, corresponding 40 class MODIS number, their description, corresponding emissivity $\epsilon$ and albedo $\alpha$, and number of observation sites corresponding to the land type.}
+%\label{tab:lcc}
+%\end{table}
 
 
-\caption{Model error due to temporal variability: evaluation of model against observations for time-mean temperatures for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
-\label{tab:time_error}
-\end{table}
-
-\begin{table}
-\centering
-%Space error: 
-\begin{tabular}{lrrrrr}
-%\toprule
-{} &  all data &     6am &   16pm &   min &  max \\
-%\midrule
-rmse        &      0.93 &  3.32 & 3.70 &  2.74 & 6.09 \\
-correlation &      0.64 &  0.52 & 0.46 &  0.54 & 0.40 \\
-p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
-pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
-mioa        &      0.69 &  0.55 & 0.45 &  0.57 & 0.42 \\
-r\_squared   &      0.41 &  0.27 & 0.21 &  0.29 & 0.16 \\
-%\bottomrule
-\end{tabular}
-
-
-\caption{Model error due to spatial variability: evaluation of model against observations for temperatures averaged over space at each hour for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
-\label{tab:space_error}
-\end{table}
+%\begin{table}
+%\centering
+%%Time error: 
+%\begin{tabular}{lrrrrr}
+%%\toprule
+%{} &  all data &     6am &   16pm &   min &  max \\
+%%\midrule
+%rmse        &      4.60 &  4.15 & 6.04 &  3.94 & 2.87 \\
+%correlation &      0.89 &  0.84 & 0.76 &  0.82 & 0.90 \\
+%p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
+%pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
+%mioa        &      0.93 &  0.83 & 0.85 &  0.82 & 0.92 \\
+%r\_squared   &      0.80 &  0.71 & 0.58 &  0.67 & 0.81 \\
+%%\bottomrule
+%\end{tabular}
+%\caption{Model error due to temporal variability: evaluation of model against observations for time-mean temperatures for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
+%\label{tab:time_error}
+%\end{table}
+%
+%\begin{table}
+%\centering
+%%Space error: 
+%\begin{tabular}{lrrrrr}
+%%\toprule
+%{} &  all data &     6am &   16pm &   min &  max \\
+%%\midrule
+%rmse        &      0.93 &  3.32 & 3.70 &  2.74 & 6.09 \\
+%correlation &      0.64 &  0.52 & 0.46 &  0.54 & 0.40 \\
+%p-value     &      0.00 &  0.00 & 0.00 &  0.00 & 0.00 \\
+%pbias       &      0.78 & -6.38 & 2.55 & -5.76 & 3.31 \\
+%mioa        &      0.69 &  0.55 & 0.45 &  0.57 & 0.42 \\
+%r\_squared   &      0.41 &  0.27 & 0.21 &  0.29 & 0.16 \\
+%%\bottomrule
+%\end{tabular}
+%
+%
+%\caption{Model error due to spatial variability: evaluation of model against observations for temperatures averaged over space at each hour for root mean squared error $RMSE$, correlation  $r$, correlation p-value $p$, percent bias $PBIAS$, mean index of agreement $MIOA$, and coefficient of determination $r^2$ for 6am, 4pm, $T_{min}$ and $T_{max}$.  }
+%\label{tab:space_error}
+%\end{table}
 
 \begin{table}
 
