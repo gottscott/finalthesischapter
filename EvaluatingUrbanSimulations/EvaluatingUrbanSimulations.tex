@@ -214,12 +214,12 @@ While dense sensor networks provide the data necessary to support UHI understand
 Urban simulations using the urban WRF modeling system \citep{chen2011integrated} have been evaluated using data from cities worldwide in climate zones ranging from desert to sub-tropical, from Phoenix \citep{georgescu2013summer} to Beijing \citep{wang2013modeling} to Sydney \citep{argueso2014temperature} to Rotterdam \citep{theeuwes2014seasonal}. 
 Authors evaluate the accuracy of WRF in different ways,
 %This includes
-including using observations of temperature (eg, \citet{kusaka2012numerical}), wind, humidity and precipitation (eg, \cite{miao2011impacts,chen2011numerical}), pollutant concentrations \citep{brioude2013top}, and energy fluxes at the surface \citep{yang2015enhancing,loridan2012multi}, in the near-surface atmosphere as well as aloft using atmospheric profilers and flight campaigns \citep{li2013development}. 
+including using observations of temperature (eg, \citet{kusaka2012numerical}), wind, humidity and precipitation \citep{miao2011impacts,chen2011numerical}, pollutant concentrations \citep{brioude2013top}, and energy fluxes at the surface \citep{yang2015enhancing,loridan2012multi}, in the near-surface atmosphere as well as aloft using atmospheric profilers and flight campaigns \citep{li2013development}. 
 In the case of surface observations, many studies compare data from the model grid cell located nearest to the observation station (that is, rather than interpolating) and quantify model agreement with observations using statistical metrics such as the mean root mean squared error (RMSE), correlation, bias, hit rate, index of agreement, or coefficient of determination \citep{loridan2010trade,salamanca2011study,lee2011evaluation,chen2011numerical,chen2014wrf,li2013multi}, with RMSEs for 2-meter temperature ranging from $0.6-4.0^\circ C$ \citep{kim2013evaluation}. These studies 
 all conclude that the WRF-urban modeling system performs well for modeling the urban environment. % by evaluating numerical simulations in a number of ways. 
 
 While some of these studies use an extensive network to evaluate surface characteristics---for example, \cite{miao2011impacts} used a network of 60 stations in China---most studies evaluate the model using only a few stations, potentially affecting conclusions of model accuracy. 
-Additionally, while many studies examine temperature in urban areas, few explicitly examine urban-rural differences or report on urban-rural differences as an evaluation metric. This could be problematic because while generally, mid-latitude, temperate cities experience the largest urban-rural differences at night \citep{oke82,scott2018reduced}, the timing and intensity of the urban heat island has been shown to vary by city, climate zone, or synoptic weather type \cite{hardin2017urban}. 
+Additionally, while many studies examine temperature in urban areas, few explicitly examine urban-rural differences or report on urban-rural differences as an evaluation metric. This could be problematic because while generally, mid-latitude, temperate cities experience the largest urban-rural differences at night \citep{oke82,scott2018reduced}, the timing and intensity of the urban heat island has been shown to vary by city, climate zone, or synoptic weather type \citep{hardin2017urban}. 
 Models suggest a larger nighttime UHI than daytime UHI for cities in North America, including Houston \citep{chen2011numerical}, Oklahoma City \citep{hu2013impact}, Mexico City \citep{cui2012seasonal}, Asia, including Tokyo \citep{kusaka2012urban}, Singapore \citep{li2013multi}, Beijing \citep{wang2013contribution}, and Europe, including Rotterdam \citep{theeuwes2014seasonal} and London \citep{grawe2013modelling}.
 In other cities, numerical simulations suggest the opposite, namely, that daytime UHI is larger than nighttime. This includes studies of Beijing \citep{zhang2011impact}, Hangzhou City \citep{chen2014wrf}, as well as several studies of Baltimore \citep{zhang2011impact,li2013synergistic, li2015contrasting}.
 %., a mid-size city on the East Coast of the United States (see Fig. \ref{fig:map}). 
@@ -300,7 +300,9 @@ iButtons were installed in 91 sites beginning in May 2016, with the full network
 \label{fig:ibutton}
  \end{figure}
 
-Thermometers were housed in a custom shield in a custom, naturally aspirated radiation shield made of WhiteOptics White98 Reflector Film and attached to trees and poles as in Fig.~\ref{fig:ibutton}a using a plastic zip-tie. Out of the 85 sensors, 61 sensors were attached to trees, 17 sensors were attached to metal poles, and 7 were attached to wooden posts. Most of these were estimated to be located in partial shade (38) or full shade (24); the remainder were located in full sun (23). The implications of installation details for temperature monitoring are discussed more in \cite{scott2017intraurban}.
+Thermometers were housed in a custom shield in a custom, naturally aspirated radiation shield made of WhiteOptics White98 Reflector Film and attached to trees and poles as in Fig.~\ref{fig:ibutton}a using a plastic zip-tie. 
+Figure~\ref{fig:ibutton}b,c show two installation sites, one in urban East Baltimore, and the other in a rural area, that are typical installations. 
+Out of the 85 sensors, 61 sensors were attached to trees, 17 sensors were attached to metal poles, and 7 were attached to wooden posts. Most of these were estimated to be located in partial shade (38) or full shade (24); the remainder were located in full sun (23). The implications of installation details for temperature monitoring are discussed more in \cite{scott2017intraurban}.
 
 \begin{table}
 \centering
@@ -308,8 +310,8 @@ Thermometers were housed in a custom shield in a custom, naturally aspirated rad
 Landcover & Description &  Modis \# & $\epsilon$ & $\alpha$ & N  \\
 High Intensity & Developed, high intensity & 26& 0.88 &0.1 & 29 \\
 Medium and Low Intensity & Developed, & 25,24& 0.9, 0.88 & 0.1, 0.11& 24\\
-Open Space& Developed, open space &23 & 0.97 & 0.12 & 21\\
-Rural forest&Deciduous forest & 28& 0.93& 0.15& 3\\
+Open Space& Developed, open space &23 & 0.97 & 0.12 & 20\\
+Rural forest&Deciduous forest & 28& 0.93& 0.15& 4\\
 %Urban forest& Urban forest sites &NA & NA & NA & 16\\
 \end{tabular}
 \caption{Land types, corresponding 40 class MODIS number, their description, corresponding emissivity $\epsilon$ and albedo $\alpha$, and number of observation sites corresponding to the land type.}
@@ -320,11 +322,12 @@ Rural forest&Deciduous forest & 28& 0.93& 0.15& 3\\
  Table \ref{tab:lcc} shows each land type examined in this study and the corresponding MODIS classifications, which are the same with the exception that we combine the developed, medium intensity classification (MODIS category 25) with the developed, low intensity classification (MODIS category 24) to make a combined medium and low intensity category. Our local site data shows that all developed land types can include both impervious surfaces but also grassy areas. 
  %We also add an urban forest classification, not described by MODIS but available from our own \textit{in situ} site description. 
  % also add something about street trees? 
-For developed land types, this study includes 20-30 sites for each category; only 3 sites are included in the rural/forest area. 
+For developed land types, this study includes 20-30 sites for each category; only 4 sites are included in the rural/forest area. 
 
 These site classifications correspond to a range of possible vegetative fractions. In order to calculate vegetation fractions quantitatively, we calculate satellite observations of Normalized Digital Vegetation Index (NDVI), the normalized difference of near-infrared light $NIR$ to visible red light $VIS$: 
 \[NDVI = \frac{NIR-VIS}{NIR+VIS}\]
 at each observation site. The data is downloaded from Landsat-8 using the Google Earth Engine platform. We selected the least cloudy scene during the period June 1, 2016- August 15, 2016.  
+We calculate the distance to urban parks using park data downloaded from Open Baltimore (https://data.baltimorecity.gov/Culture-Arts/Parks/3r8a-uawz) and use Maryland LiDAR elevation data from the Maryland GIS Data Catalogue (http://data.imap.maryland.gov/datasets/e40871e90800420ea90b0fcdf9a36063). 
 
 \begin{figure}
 \centering
@@ -335,7 +338,7 @@ at each observation site. The data is downloaded from Landsat-8 using the Google
 
 iButtons have been evaluated in the literature and have been reported to agree well particularly for nighttime temperatures, but exhibit a warm bias \citep{scott2017temperature,terando2017ad}. Thus, we co-locate one of the iButtons with an Automated Surface Observation System (ASOS) station in downtown Baltimore (station DMH, downloaded from http://www.nws.noaa.gov/asos/). This station provides sub-hourly measurements with reported accuracies of $< 0.5^\circ $C. In Fig.~\ref{fig:bias}, we compare the ASOS measurements with the iButton measurement. We find that the measurements agree well--the mean difference (iButtons-ASOS) is $0.44^\circ$C, the distributions of summertime temperatures for all hours (Fig.~\ref{fig:bias}a) is similar, and the correlation for the two instruments is $r = 0.96$. 
 
-However, hourly measurements agree less well: the 6am error is $-0.29^\circ$C, and the 4pm error is $1.18^\circ$C. The average summertime hourly temperature, Fig.~\ref{fig:bias}c), shows that in addition to a overestimate of afternoon temperature, the diurnal temperature cycle differs between the instruments. Whereas the iButton indicates that $T_{min}$ occurs at 6am, the ASOS instrument indicates 5am. This is also born out in the fact that the mean error for $T_{min}$ is lower than for 6am data, though the same is not true for $T_{max}$ and 4pm data. In order to compensate for this instrument bias, we subtract the hourly difference between the iButton and the ASOS station as shown in Fig.~\ref{fig:bias}c) from each iButton instrument on each day. Thus, the iButton measurements reported in later parts of this paper represent a corrected temperature.  
+However, hourly measurements agree less well: the 6am error is $-0.29^\circ$C, and the 4pm error is $1.18^\circ$C. The average summertime hourly temperature, Fig.~\ref{fig:bias}c), shows that in addition to a overestimate of afternoon temperature, the diurnal temperature cycle differs between the instruments. Whereas the iButton indicates that $T_{min}$ occurs at 6am, the ASOS instrument indicates 5am. This is also born out in the fact that the mean error for $T_{min}$ is lower than for 6am data, though the same is not true for $T_{max}$ and 4pm data. In order to compensate for this instrument bias, we subtract the hourly difference between the iButton and the ASOS station as shown in Fig.~\ref{fig:bias}c from each iButton instrument on each day. Thus, the iButton measurements reported in later parts of this paper represent a corrected temperature.  
 
 \subsection{Numerical Model}
 This paper uses the Weather, Research, and Forecasting Model (WRF), a numerical weather model that incorporates the fully
@@ -354,9 +357,9 @@ the Yonsei University scheme \citep{hong2006new} %(Hong et al. 2006)
 for planetary boundary layer processes;
 and the Kain–Fritsch cumulus scheme \citep{kain1990one}. %(Kain and Fritsch 1990).
 
-The initial and boundary conditions
-used for the model runs are from the ...
-reanalysis daily averages at ...resolution. We update the boundary conditions with SST data from the X data source. 
+%The initial and boundary conditions
+%used for the model runs are from the ...
+%reanalysis daily averages at ...resolution. We update the boundary conditions with SST data from the X data source. 
 We run the WRF module for 4 months over three nested domains, each with 40 vertical levels: the first domain is run at a resolution of 9km (-85$^\circ$ W to -68$^\circ$W, 32$^\circ$N to 44$^\circ$N ), the second domain is run at a resolution of 3km (-78$^\circ$W to -73$^\circ$W, 36$^\circ$N to 41$^\circ$N), and the third domain is run at a resolution of 1km (-77$^\circ$W to-75$^\circ$W, 38$^\circ$N to 40$^\circ$N). This last 1km domain is run using the urban canopy model in \cite{chen2011integrated} with the cumulus parameterization turned on. 
 As our analysis focuses on Baltimore, this paper uses the model output from a 40 square kilometer (km) domain around Baltimore.
 % Note: fill in here!!!! 
@@ -383,6 +386,19 @@ Finally, ground flux contributions are calculated by solving the surface energy 
 where $H_i$ is the sensible flux, $SW_i$ is the net shortwave flux, $LW_i$ is the net longwave radiative flux, and $LH_i$ is the latent heating. 
 Each model is the same for each land type, but the parameters $R, RW, W$ are assigned to each land type (Table~\ref{tab:urban_model}). 
 
+\begin{table}
+\begin{tabular}{lclll}
+Parameter & name & 1 & 2 & 3 \\
+Urban fraction &  \textsc{FRC\_URB} & 0.5 & 0.9 & 0.95 \\
+Roof level &\textsc{ZR} &5.0&  7.5 & 10.0 \\
+Roof height std. deviation & \textsc{SIGMA\_ZED} & 1.0 &  3.0 &  4.0\\
+Roof width &  \textsc{ROOF\_WIDTH} & 8.3& 9.4 & 10.0 \\
+Road width & \textsc{ROAD\_WIDTH} &  8.3&  9.4&  10.0 
+\end{tabular} 
+\caption{WRF-Urban parameters which vary by urban land type 1-3, where 1 is lowest density and 3 is the highest density.}
+\label{tab:urban_model}
+\end{table}
+
 We refer to the following variables from the model: 2-meter temperature (T2),
  land-use type (LU INDEX), vegetative fraction (VF),
  latent heat (LH), 
@@ -399,7 +415,7 @@ where the net radiation flux is the sum of the net radiative fluxes $$r_{net}=LW
 
 We compare the simulated 2-meter temperature against the temperature observation in the nearest grid cell, matched using the \texttt{ll\_ to\_xy} function in the Python WRF library. 
 From the 83 unique observation sites, we have 43 unique model grid cells. This means the remaining 40 sites are located in the same model grid cell as another site; on average, 4 sites are located in a single grid cell with multiple observation sites (a median of 3 sites, with a standard deviation of 2.3 sites per grid cell). The most number of sites from a single model grid cell is 9. In these cases, we compare both observations to the model grid cell, effectively oversampling those cells. 
-We reproduce model results for all grid cells in the 40km$^2$ domain around Baltimore in the Supplmental Material. 
+We reproduce model results for all grid cells in the 40km$^2$ domain around Baltimore in the Supplemental Material. 
 In all cases, we compare data taken or simulated between the periods of July 1, 2016 and August 30, 2016 and report our results in local time (GMT-4). 
 
 \subsection{Evaluation Metrics}
@@ -475,7 +491,7 @@ though there is significant overlap amongst the land types.
 %Having seen how time-averaged temperature varies by land type, 
 We next examine how different locations vary from one another by looking at the spatial auto-correlation, which measures the statistical similarity between two nearby points. Figure~\ref{fig:semiv_obs} shows a semi-variogram: the semi-variance (in units $^\circ$C$^2$) is plotted against distance for all locations at 6am. For sites within one kilometer of one another, the semi-variance is less than $0.5^\circ$C$^2$, indicating that nearby sites are highly spatially auto-correlated and thus similar to one another. 
 As distance between sites increases, the semi-variance increases linearly, indicating that farther away points are more and more dissimilar. While the semi-variance is noisier at longer distances, this is due to having fewer datapoints at these distances. 
-The theoretical limit of the semi-variogram as distance $h$ increases is the sample variance, in this case $1.4^{\circ \text{C} ^2}$; the lack of data at longer distances could be why the semi-variogram exceeds the theoretical limit for some of the distances between 15-25 km. 
+The theoretical limit of the semi-variogram as distance $h$ increases is the sample variance, in this case $1.4^{\circ} \text{C} ^2$; the lack of data at longer distances could be why the semi-variogram exceeds the theoretical limit for some of the distances between 15-25 km. 
 In Fig.~\ref{fig:semiv_obs}b, we plot distance versus semi-variance for 4pm temperature. We see that spatial autocorrelation is lower for all sites; for sites within one kilometer, the semi-variance is 1km, higher than that at 6am. The semi-variogram is noisier than that of 6am, with semi-variance increasing little with increasing distance until 15 kilometers, when it increases sharply. Even at 25 kilometers, semi-variance remains below the theoretical limit of the sample variance ($\sigma = 3.9^\circ \text{C}^2$).This indicates that spatial auto-correlation increases little with distance for distances under 15 km.
 For both times, we see that sites closer together are more auto-correlated, that is, similar to closer sites, and farther sites are less auto-correlated and more dissimilar. This is more true for 6am temperature than for 4pm temperature. 
 %If temperature of one site was independent of another site, then this would exacerbate efforts to implement urban heat island reduction policies. Our result suggests that rather than air temperatures being entirely random, changes in one location may affect nearby locations, particularly for morning temperatures. Furthermore, statistical models that rely on the semi-variogram to model urban temperature (e.g., Krieging) often fit semi-variograms to a few statistical models (circular, exponential, etcetera) that assume that the semi-variance reaches its sill at the sample variance. These results suggest that such models may make incorrect assumptions about spatial auto-correlation within the urban heat island. 
@@ -751,7 +767,7 @@ Using summary statistics is one way to evaluate model performance. %Having seen 
 We now turn to a detailed evaluation according to the important characteristics of Baltimore's urban heat island. 
 %Figure~\ref{fig:hist}b shows histograms of spatially averaged temperatures at each site grouped by land types.
 % note: calcluate this 
-First, we examine the statistical distribution of time mean temperatures at each site for data averaged over all hours by land type (Fig.~\ref{fig:hist}b). 
+First, we examine the statistical distribution of time-averaged temperatures at each site for data averaged over all hours by land type (Fig.~\ref{fig:hist}b). 
 As in observations, higher intensity land types are hotter than lower intensity land types, with high intensity land hottest, and rural forests coolest. High intensity land is significantly warmer than other land types and unlike observations, its distribution does not overlap with other land types, though less developed land types do have overlapping distributions. 
 The distributions are less variable than observations, with standard deviations for all land types of $0.2^\circ$C or less. This suggests that the model underestimates the spatial variability present in observations, though as the model draws many key parameters from land-cover based lookup tables rather than fully distributed maps as well as averages over each numerical grid cell, this is not unexpected. 
 
@@ -759,7 +775,7 @@ Distributions of mean 6am modeled temperatures (Fig.~\ref{fig:hist}) resemble th
 
 \subsubsection{Spatial auto-correlation}
 %We have shown how modeled temperature has low spatial variability (<$1^\circ$C) compared with observations. 
-We next examine spatial auto-correlation in the model and how it changes as a function of distance. Fig.~\ref{fig:semiv_model}a shows semi-variograms (semi-variance versus distance) for data at 6am. The semi-variogram has a nugget of approximately $0.5^\circ$C, indicating that points within one kilometer or less of each other vary by a little under 1$^\circ$C. Semi-variance increases with distance at a linear rate, and it is unclear if the semi-variogram reaches a sill or not. This indicates that temperature within the modelled urban heat island varies by $1^\circ$C or less. This is similar to the observed semi-variogram in Fig.~\ref{fig:semiv_obs}a, where semi-variorance appears to increase with distance beyond 20km. The semi-variogram for 4pm temperatures (Fig.~\ref{fig:semiv_model}) shows that semi-variance remains constant or slightly increases with distance, indicating that modelled point similarity increases constantly with distance. The nugget is $1^\circ$C, indicating that there is sub-gridscale variability causes neighboring gridpoints to vary by about $1^\circ$C. 
+We next examine spatial auto-correlation in the model and how it changes as a function of distance. Fig.~\ref{fig:semiv_obs}a shows semi-variograms (semi-variance versus distance) for data at 6am. The semi-variogram has a nugget of approximately $0.5^\circ$C, indicating that points within one kilometer or less of each other vary by a little under 1$^\circ$C. Semi-variance increases with distance at a linear rate, and it is unclear if the semi-variogram reaches a sill or not. This indicates that temperature within the modelled urban heat island varies by $1^\circ$C or less. This is similar to the observed semi-variogram in Fig.~\ref{fig:semiv_obs}a, where semi-variorance appears to increase with distance beyond 20km. The semi-variogram for 4pm temperatures (Fig.~\ref{fig:semiv_obs}b) shows that semi-variance remains constant or slightly increases with distance, indicating that modelled point similarity increases constantly with distance. The nugget is $1^\circ$C, indicating that there is sub-gridscale variability causes neighboring gridpoints to vary by about $1^\circ$C. 
 % comparison with observation 
 This shows that modeled semi-variograms have similar shapes to the observed semi-variograms, indicating that by this metric, the model is accurately capturing spatial auto-correlation in urban temperature. %Thus, we conclude that errors in spatial variability 
 
@@ -770,7 +786,7 @@ We compare modeled temperature to vegetation fraction $VF$ in Fig.~\ref{fig:veg}
 the model captures the observed negative relationship between temperature and vegetation: $r= -0.49$, similar to observations. Next, we examine the hourly data and see that 6am temperature is slightly less correlated with vegetation than observations ($r= -0.59$, Fig.~\ref{fig:veg}d), but 4pm temperature is more correlated with vegetation than observations ($r= -0.48$, Fig.~\ref{fig:veg}f). This suggests that the model may overestimate the ability of vegetative land types to cool during the afternoon and slightly underestimate the vegetation/cooling relationship during the early morning. 
 
 \subsubsection{Urban heat island intensity}
-As discussed earlier, it is possible that the model may simply have a different diurnal cycle than observations which may cause statistics taken from a single hour (\textit{i.e.}, 6am or 4pm) to underestimate model performance. To address this, we examine the diurnal variability in temperature for each land type, shown in Fig.~\ref{fig:diurnal}c. At all sites, modeled temperature reaches its minimum at 6am and achieves maximum temperature at 1pm, cooling slightly until  7pm, at which point temperatures cool rapidly throughout the night. As seen in Fig.~\ref{fig:hist}, 
+As discussed earlier, it is possible that the model may simply have a different diurnal cycle than observations which may cause statistics taken from a single hour (here, 6am or 4pm) to underestimate model performance. To address this, we examine the diurnal variability in temperature for each land type, shown in Fig.~\ref{fig:diurnal}c. At all sites, modeled temperature reaches its minimum at 6am and achieves maximum temperature at 1pm, cooling slightly until  7pm, at which point temperatures cool rapidly throughout the night. As seen in Fig.~\ref{fig:hist}, 
 temperature is warmest throughout the day and rural forests are cooler throughout the day. Medium and low intensity land and open spaces are most similar to each other, becoming more similar to high intensity land during the day and and more similar to rural forests at night. 
 This diurnal cycle contrasts with temperature observations in several ways: first, $T_{min}$ is too cold, second, $T_{max}$ is too early, and third, $T_{max}$ is too hot. That is, the model exaggerates the range of the diurnal cycle with respect to observations, and incorrectly reproduces the timing of the diurnal temperature cycle. Additionally, high intensity temperature differs too much from other land types at night, while other land types are too similar from the early evening to the afternoon. 
  
@@ -793,7 +809,7 @@ Furthermore, the model incorrectly produces the magnitude and timing of the diur
 As the previous analysis uses only a single grid cell, it leaves open the possibility that model point selection may influence our results. Thus, we repeat our analysis using all points in a 40 square kilometer domain around Baltimore. In Fig.~\ref{fig:diurnal_wd}a, we show temperature variability by hour for each of the 13 land types present in this domain. We see that developed land is hotter for most of the day, with the exception of water at night and wetlands during the early morning. The spread between 
 In Fig.~\ref{fig:diurnal_wd}b, we compare these diurnal cycles to the average diurnal cycle in a deciduous forest, representing 179 model points. With the exception of water at night and wetlands during the mid-morning, high intensity land types have the highest values of $\Delta T$ at all hours of the day. Similar to Fig.~\ref{fig:diurnal}, $\Delta T$ in high intensity land is around 2$^\circ$C at night, growing smaller until 9am, and then increasing throughout the day until 7pm. Medium and low intensity and open space show low $\Delta T$ at night, increasing at 6am throughout the day until 7pm, and then decreasing sharply thereafter. Again, this diurnal pattern is similar to that seen in Fig.~\ref{fig:diurnal} for each land type, demonstrating that modeled $\Delta T$ is less sensitive to rural site selection than observed $\Delta T$. 
 
-\begin{figure}[h]
+\begin{figure}
 \centering
 \includegraphics[width=40pc]{../figures/whole_domain/diurnal_model.eps}
 \caption{As in Fig. \ref{fig:diurnal}c,d but for the whole model domain.}% (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
@@ -815,11 +831,12 @@ In Fig.~\ref{fig:diurnal_wd}b, we compare these diurnal cycles to the average di
 We have seen that temperature varies throughout the urban heat island, and these differences are linked to surface features such as land type and vegetation in both the model and observations. 
 In order to understand what causes the differences in temperature between each land type, we examine the surface energy budget in each land type. 
  In Fig.~\ref{fig:seb}a, we show the diurnal cycle of the net surface energy flux $F$ averaged over the summertime for each land type. The net energy flux is highest in high intensity land throughout the day and lowest in rural forests; net energy flux for other land categories is almost the same. More energy results in warming, so a higher energy flux for more developed land types is consistent with warmer developed land and a pronounced UHI. 
- To understand the causes of this forcing, we break down the surface energy budget into component parts. First, we examine the net radiation fluxes in Fig.~\ref{fig:seb}b. These fluxes differ little by land type, and we can attribute these differences to albedo and emissivity, which are assigned to each land type (see Tab.~\ref{tab:lcc}). Incoming shortwave radiation is the same (not shown), while reflected shortwave radiation is highest for less developed land types, which have lower albedo. 
+ To understand the causes of this forcing, we break down the surface energy budget into component parts. First, we examine the net radiation fluxes in Fig.~\ref{fig:seb}b. These fluxes differ little by land type, and we can attribute these differences to albedo and emissivity, which are assigned to each land type (see Tab.~\ref{tab:lcc}). 
+For each land type, incoming shortwave radiation is the same (not shown), while reflected shortwave radiation is highest for less developed land types, which have lower albedo. 
  %Shortwave difference
 % The differences in shortwave radiation (not shown) between land types are driven by albedo differences; in this model, albedo is a function of land type (Tab.~\ref{tab:lcc}). 
-Developed land is less emissive but warmer, resulting in more outgoing longwave radiation in developed land, causing a difference in net longwave radiation between land types. 
-The sum of these differences are small--the net radiation exhibits some differences between the urban and rural areas, but these are small compared to the other fluxes. 
+Developed land is less emissive but warmer, resulting in more outgoing longwave radiation in developed land. %Overall, this balances as more net radiation in rural areas, and similar net radiation in developed land types.  %causing a difference in net longwave radiation between land types. 
+The sum of these differences are small--the net radiation is slightly higher in rural areas than in developed land types, but these differences are small (<$50$W/m$^2$) compared to the other fluxes. 
 
 Sensible heat, by contrast, differs significantly by land type (Fig.~\ref{fig:seb}b).  
 We see that sensible heat is highest for high intensity land and lowest for rural forests. The reverse is true for latent heating, which is highest for rural forests and lowest for urban areas  (Fig.~\ref{fig:seb}d). 
@@ -841,18 +858,18 @@ For all fluxes, we see little variability between land type, and that fluxes are
 %We see that $F$ is highest for  High intensity land, with medium, low and open space having the same net flux. Rural forests show the lowest net flux. Error bars show that for each land type, there is little spatial variability.  
 %To diagnose why, we turn to the components of the surface energy budget (eq.~\ref{eq:seb}). The sensible heat flux (Fig.~\ref{fig:seb}b) is highest for high intensity land, and lowest for the rural forest. 
 %In WRF, emissivity is fixed for each land cover class, though the vegetative fraction is not. Emissivity for high intensity land is $0.88$, lower than 
-\begin{table}
-\begin{tabular}{lclll}
-Parameter & name & 1 & 2 & 3 \\
-Urban fraction &  \textsc{FRC\_URB} & 0.5 & 0.9 & 0.95 \\
-Roof level &\textsc{ZR} &5.0&  7.5 & 10.0 \\
-Roof height std. deviation & \textsc{SIGMA\_ZED} & 1.0 &  3.0 &  4.0\\
-Roof width &  \textsc{ROOF\_WIDTH} & 8.3& 9.4 & 10.0 \\
-Road width & \textsc{ROAD\_WIDTH} &  8.3&  9.4&  10.0 
-\end{tabular} 
-\caption{WRF-Urban parameters which vary by urban land type 1-3, where 1 is lowest density and 3 is the highest density.}
-\label{tab:urban_model}
-\end{table}
+%\begin{table}
+%\begin{tabular}{lclll}
+%Parameter & name & 1 & 2 & 3 \\
+%Urban fraction &  \textsc{FRC\_URB} & 0.5 & 0.9 & 0.95 \\
+%Roof level &\textsc{ZR} &5.0&  7.5 & 10.0 \\
+%Roof height std. deviation & \textsc{SIGMA\_ZED} & 1.0 &  3.0 &  4.0\\
+%Roof width &  \textsc{ROOF\_WIDTH} & 8.3& 9.4 & 10.0 \\
+%Road width & \textsc{ROAD\_WIDTH} &  8.3&  9.4&  10.0 
+%\end{tabular} 
+%\caption{WRF-Urban parameters which vary by urban land type 1-3, where 1 is lowest density and 3 is the highest density.}
+%\label{tab:urban_model}
+%\end{table}
 
 As discussed in Methods, in urban areas, the model combines anthropogenic surface fluxes with fluxes from natural surfaces into a total urban surface flux $Q$:
 $$ Q= F_{veg} \cdot Q_{veg} + F_{urban} \cdot Q_{urban}$$
@@ -893,7 +910,7 @@ For example, the surface energy budget is the same for open land as for medium a
 %\cite{zhang2011impact} found that upwind heating rather than can be responsible for temperature excess in Baltimore; by demonstrating how unrealistic the surface energy is and showing how , our results suggest that this may not always be the case.
 %As the model exaggerates the intensity of the diurnal cycle, these results indicate that future studies should examine turbulent heat fluxes to understand what drives nighttime differences, as temperature differences between land type extend to the surface. Future studies should examine the surface energy budget in a range of environments in order to suggest model improvements, particularly for those that affect daytime temperatures. 
 %Thus, we conclude that the parameters governing urban geometry cause the discrepancy of energy fluxes between urban land types. 
-We suggest that future studies should modify the variables in Tab.~\ref{tab:urban_model} and conduct sensitivity tests in order to increase the spatial variability within the urban heat island.
+We suggest that future studies should modify the variables in Table~\ref{tab:urban_model} and conduct sensitivity tests in order to increase the spatial variability within the urban heat island.
 
 %Modeling studies of Baltimore UHI literature have made a number of findings that may be impacted by our results. 
 %First, \cite{zhang2011impact} found that upwind heating can be responsible for temperature excess in Baltimore; by demonstrating how unrealistic the surface energy is, our results suggest that this may not always be the case.
@@ -1053,12 +1070,12 @@ Thus, care must be taken when using urban heat island models to understand proce
 %\end{figure}
 %%%%%% extra figures
 
-\begin{figure}[h]
-\centering
-\includegraphics[width=40pc]{../figures/whole_domain/diurnal_model.eps}
-\caption{As in Fig.~\ref{fig:diurnal} but for the whole model domain. (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
-\label{fig:diurnal_wd}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[width=40pc]{../figures/whole_domain/diurnal_model.eps}
+%\caption{As in Fig.~\ref{fig:diurnal} but for the whole model domain. (a) Average summer temperature and (b) temperature difference by hour for for each landcover type.}% N indicates the number of model grid points included in each land type. }
+%\label{fig:diurnal_wd}
+%\end{figure}
 
 \begin{figure}[h]
 \centering
