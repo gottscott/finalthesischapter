@@ -161,16 +161,21 @@
 %% \begin{abstract} starts the second page 
 
 \begin{abstract}
-The health burden of heat exposure makes understanding the urban heat island (UHI) a priority for scientists and policymakers alike, but knowledge gaps remain. 
-In this paper, we first identify several key characteristics of Baltimore's UHI using a novel data-set from over 100 low-cost thermometer/hygrometers. 
-We then evaluate urban the integrated urban Weather, Research and Modeling System (WRF), a numerical model,  against these identified characteristics.
-We find the spatial variability of temperature to be $1^\circ$C and linked to land type and presence of vegetation. Temperature is spatially auto-correlated, and this auto-correlation increases linearly with distance without finding a maximum. We also find that green infrastructure is associated with cooling, though different types of green infrastructure cool at different times of day: urban forests exhibit the most daytime cooling, while urban parks cool most at night. 
-We also see that urban-rural temperature differences $\Delta T$ are lowest during the day and highest at night for rural open sites, and highest during the daytime for rural forested sites, demonstrating that in addition to being sensitive to urban site characteristics, the timing and magnitude of these differences are highly sensitive to rural station micro-climate. 
- While summary statistics suggest good model performance, a more detailed evaluation shows that WRF fails to adequately capture several important UHI properties in Baltimore. 
-In particular, WRF exaggerates the diurnal range of temperatures, incorrectly estimates the timing and intensity of $\Delta T$ as well as its sensitivity to rural site selection, and over-estimates the daytime relationship between vegetation and temperature. 
-Additionally, the model underestimates spatial variability within each land type; we attribute this to surface energy fluxes, which are the same even for differing land types. 
-Our results show that summary statistics fail to accurately diagnose model skill for urban heat island simulations. 
-Thus, careful evaluation must be undertaken when using urban heat island models to understand process, predict future change, and recommend health and  policy interventions.
+The health burden of heat exposure makes understanding urban climate a priority for scientists and policymakers alike, but knowledge gaps remain. 
+This study addresses two active research trends in the study of urban climate: the proliferation of high-density, low-cost in situ monitoring networks, and the application of numerical weather models like the Weather Research and Forecasting (WRF) model to study phenomenology and process in urban climate. Here we apply both a monitoring network and WRF to study the urban heat island (UHI) of Baltimore, Maryland. 
+A central finding is that first order metrics often applied to assess performance of mesoscale climate models in the study of the UHI are inadequate when evaluating the model’s ability to represent the physical drivers of the UHI. This is a critical issue, as the assumption that models are capable of simulating UHI process underlies confidence in their application to study urban climate vulnerabilities and UHI intervention strategies. 
+A second finding is that applications of high density measurement networks to study the UHI are sensitive to sensor siting and distribution decisions relative to the land cover and location of both urban and rural monitoring sites. 
+Combining these two findings, we see that the simplification of land surface classes and properties in a model like WRF complicates the evaluation and application of the model in urban applications. While these challenges are generally acknowledged in model-based studies of urban climate, the findings of this study suggest that they can drive potentially erroneous conclusions regarding UHI process and mitigation potential. As work on urban modeling and monitoring continues to advance, careful attention to the representation of both urban and neighboring rural surface properties must be taken into account when designing and interpreting high resolution urban studies.
+
+%In this paper, we first identify several key characteristics of Baltimore's UHI using a novel data-set from over 100 low-cost thermometer/hygrometers. 
+%We then evaluate urban the integrated urban Weather, Research and Modeling System (WRF), a numerical model,  against these identified characteristics.
+%We find the spatial variability of temperature to be $1^\circ$C and linked to land type and presence of vegetation. Temperature is spatially auto-correlated, and this auto-correlation increases linearly with distance without finding a maximum. We also find that green infrastructure is associated with cooling, though different types of green infrastructure cool at different times of day: urban forests exhibit the most daytime cooling, while urban parks cool most at night. 
+%We also see that urban-rural temperature differences $\Delta T$ are lowest during the day and highest at night for rural open sites, and highest during the daytime for rural forested sites, demonstrating that in addition to being sensitive to urban site characteristics, the timing and magnitude of these differences are highly sensitive to rural station micro-climate. 
+% While summary statistics suggest good model performance, a more detailed evaluation shows that WRF fails to adequately capture several important UHI properties in Baltimore. 
+%In particular, WRF exaggerates the diurnal range of temperatures, incorrectly estimates the timing and intensity of $\Delta T$ as well as its sensitivity to rural site selection, and over-estimates the daytime relationship between vegetation and temperature. 
+%Additionally, the model underestimates spatial variability within each land type; we attribute this to surface energy fluxes, which are the same even for differing land types. 
+%Our results show that summary statistics fail to accurately diagnose model skill for urban heat island simulations. 
+%Thus, careful evaluation must be undertaken when using urban heat island models to understand process, predict future change, and recommend health and  policy interventions.
 
 \end{abstract}
 
@@ -391,12 +396,12 @@ We analyze the following variables from the model: 2-meter temperature (T2),
 incoming shortwave radiation (SWDNB),
 reflected outgoing shortwave radiation (SWUPB), 
 reflected incoming longwave radiation (LWDNB) and outgoing longwave radiation (LWUPB).  
-We compute the net energy flux $F$ as
-\begin{equation}
-%\label{eq:seb}
-F= r_{net} -LH - HFX - GRDFLX
-\end{equation}
-where the net radiation flux is the sum of the net radiative fluxes $$r_{net}=LWDNB - LWUPB+ SWNDB-SWUPB$$.
+%We compute the net energy flux $F$ as
+%\begin{equation}
+%%\label{eq:seb}
+%F= r_{net} -LH - HFX - GRDFLX
+%\end{equation}
+%where the net radiation flux is the sum of the net radiative fluxes $$r_{net}=LWDNB - LWUPB+ SWNDB-SWUPB$$.
 
 We compare the simulated 2-meter temperature against the temperature observation in the nearest grid cell, matched using the \texttt{ll{\_}to{\_}xy} function in the Python WRF library. 
 From the 83 unique observation sites, we have 43 unique model grid cells. This means the remaining 40 sites are located in the same model grid cell as another site; on average, 4 sites are located in a single grid cell with multiple observation sites (a median of 3 sites, with a standard deviation of 2.3 sites per grid cell). The most number of sites from a single model grid cell is 9. In these cases, we compare both observations to the model grid cell, effectively oversampling those cells. 
@@ -826,10 +831,9 @@ In Fig.~\ref{fig:diurnal_wd}b, we compare these diurnal cycles to the average di
 \end{figure}
 
 We have seen that temperature varies throughout the urban heat island, and these differences are linked to surface features such as land type and vegetation in both the model and observations. 
-In order to understand what causes the differences in temperature between each land type, we examine the surface energy budget in each land type. 
- In Fig.~\ref{fig:seb}a, we show the diurnal cycle of the net surface energy flux $F$ averaged over the summertime for each land type. The net energy flux is highest in high intensity land throughout the day and lowest in rural forests; net energy flux for other land categories is almost the same. %More energy results in warming, so 
- A higher energy flux for more developed land types is consistent with warmer developed land and a pronounced UHI. 
- To understand the causes of this forcing, we break down the surface energy budget into component parts. First, we examine the net radiation fluxes in Fig.~\ref{fig:seb}b. These fluxes differ little by land type, and we can attribute these differences to albedo and emissivity, which are assigned to each land type (see Table~\ref{tab:lcc}). 
+In order to understand what causes the differences in temperature between each land type, we examine the surface energy budget in each land type (Fig.~\ref{fig:seb}). 
+%A higher energy flux for more developed land types is consistent with warmer developed land and a pronounced UHI. 
+ To understand the causes of this forcing, we break down the surface energy budget into component parts. First, we examine the net radiation fluxes in Fig.~\ref{fig:seb}a. These fluxes differ little by land type, and we can attribute these differences to albedo and emissivity, which are assigned to each land type (see Table~\ref{tab:lcc}). 
 For each land type, incoming shortwave radiation is the same (not shown), while reflected shortwave radiation is highest for less developed land types, which have lower albedo. 
  %Shortwave difference
 % The differences in shortwave radiation (not shown) between land types are driven by albedo differences; in this model, albedo is a function of land type (Table~\ref{tab:lcc}). 
@@ -845,7 +849,7 @@ A key difference between ground heat flux and the turbulent fluxes (latent and s
  Ground heat flux returns locally--if the ground absorbs more during the day it will return more at night or over longer time scales.
  %doesn't seem to be true... GRD flux But the sum of the turbulent heat fluxes---sensible and latent heat---is larger in rural than urban areas, meaning that more energy enters the lower atmosphere as heat from these fluxes, resulting in more rural surface cooling. 
 In rural areas, slightly larger net radiation during the daytime is more than offset by latent heat losses; at night, sensible heat losses and radiative cooling cause rural areas to cool faster.  As a result, little energy goes into ground storage. 
-By contrast, urban areas experience more turbulent heating during the day than rural areas; the remaining heat is stored as ground storage, and returns at night as heat into the atmosphere, resulting in warmer nighttime temperatures and a pronounced UHI. 
+By contrast, urban areas experience more turbulent heating during the day than rural areas; the remaining heat is stored as ground storage, and returns at night as heat into the atmosphere,  resulting in warmer nighttime temperatures and a pronounced UHI. 
 The difference influxes between land types remains small, however. 
 For all fluxes, we see little variability between land type, and that fluxes are the same for open land as for medium and low intensity land. This suggests that land cover based parameterizations in the model fail to capture surface energy budget contrasts that are relevant to the UHI.
 %Distinctions between temperature in each land class show that 
